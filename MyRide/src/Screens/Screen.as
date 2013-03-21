@@ -20,7 +20,7 @@ package Screens
 			switch(screen)
 			{
 				case "[class Home]":
-					trace("Weather Screen Active!!");
+					trace("Home Screen Active!!");
 					Locator.home.visible = true;
 					HideScreen(Locator.weather);
 					break;

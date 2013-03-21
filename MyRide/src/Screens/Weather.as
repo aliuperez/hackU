@@ -10,6 +10,7 @@ package Screens
 	import flash.text.TextField;
 	
 	import Screens.Screen;
+	import Dependencies.FluidLayout.FluidObject;
 
 	public class Weather extends Screen
 	{
@@ -25,7 +26,7 @@ package Screens
 		// Text Fields
 			private var maxt:TextField = new TextField();
 			private var mint:TextField = new TextField();
-			private var state:TextField = new TextField();
+			private var city:TextField = new TextField();
 			private var humidity:TextField = new TextField();
 			private var temp:TextField = new TextField();
 			private var max:TextField = new TextField();
@@ -51,7 +52,36 @@ package Screens
 			
 			private function placeText():void
 			{
+				//add kids
+				addChild(maxt);
+				addChild(mint);
+				addChild(city);
+				addChild(humidity);
+				addChild(temp);
+				addChild(max);
+				addChild(min);
+				
 				//move stuff
+				var Param:Object;
+				
+				Param = {x:0,y:0,offsetX:10,offsetY:0};
+				new FluidObject(min,Param);
+				
+				Param = {x:0,y:0,offsetX:40,offsetY:0};
+				new FluidObject(max,Param);
+				
+				Param = {x:0,y:0,offsetX:40,offsetY:10};
+				new FluidObject(city,Param);
+				
+				Param = {x:0,y:0,offsetX:40,offsetY:20};
+				new FluidObject(temp,Param);
+				
+				Param = {x:0,y:0,offsetX:40,offsetY:30};
+				new FluidObject(mint,Param);
+				
+				Param = {x:0,y:0,offsetX:40,offsetY:40};
+				new FluidObject(maxt,Param);
+				
 			}
 	
 	/* XML stuff */
@@ -82,13 +112,13 @@ package Screens
 				var codeTomorrow:String = Data.channel.item.yweather::forecast[1].@code; 
 				
 				//Assigning the information to the text fields  
-					state.text = Data.channel.yweather::location.@city; 
-					maxt.text = Data.channel.item.yweather::forecast[1].@high + " °F";  
-					mint.text = Data.channel.item.yweather::forecast[1].@low + " °F";  
-					max.text = Data.channel.item.yweather::forecast[0].@high + " °F";  
-					min.text = Data.channel.item.yweather::forecast[0].@low + " °F"; 
-					humidity.text = Data.channel.yweather::atmosphere.@humidity + " %";  
-					temp.text = Data.channel.item.yweather::condition.@temp + " °F";  
+					city.text = Data.channel.yweather::location.@city; 
+					maxt.text ="High: " +Data.channel.item.yweather::forecast[1].@high + " °F";  
+					mint.text = "Low: "+Data.channel.item.yweather::forecast[1].@low + " °F";  
+					max.text = "High: " +Data.channel.item.yweather::forecast[0].@high + " °F";  
+					min.text ="Low: "+Data.channel.item.yweather::forecast[0].@low + " °F"; 
+					humidity.text = "Humidity: " +Data.channel.yweather::atmosphere.@humidity + " %";  
+					temp.text = "Temp: " +Data.channel.item.yweather::condition.@temp + " °F";  
  
 				// find out what day tomorrow is
  					tomorrow.text = getTomorrow(day);
