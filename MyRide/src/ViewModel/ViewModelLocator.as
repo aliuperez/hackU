@@ -2,7 +2,10 @@ package ViewModel {
 
 	import Screens.Events;
 	import Screens.Home;
+	import Screens.MyDealer;
 	import Screens.Weather;
+	import Screens.Trips;
+	import Screens.Service;
 
 	public class ViewModelLocator
 	{
@@ -32,7 +35,9 @@ package ViewModel {
 		public var weather:Weather;
 		public var home:Home;
 		public var events:Events;
-		
+		public var myDealer:MyDealer;
+		public var trips:Trips;
+		public var service:Service;
 		
 		//Specialized functions for the the model locator.
 		

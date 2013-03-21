@@ -10,6 +10,9 @@ package
 	
 	import ViewModel.ViewModelLocator;
 	import Screens.Events;
+	import Screens.MyDealer;
+	import Screens.Service;
+	import Screens.Trips;
 	
 	//[SWF(frameRate="60",width="1280",height="720",backgroundColor="0x000000")]
 	
@@ -52,9 +55,24 @@ package
 			Locator.events.ScreenHeight=Locator.DeviceHeight;
 			Locator.events.ScreenWidth=Locator.DeviceWidth;					
 
+			Locator.myDealer = new MyDealer();
+			Locator.myDealer.ScreenHeight=Locator.DeviceHeight;
+			Locator.myDealer.ScreenWidth=Locator.DeviceWidth;	
+			
+			Locator.trips = new Trips();
+			Locator.trips.ScreenHeight=Locator.DeviceHeight;
+			Locator.trips.ScreenWidth=Locator.DeviceWidth;	
+			
+			Locator.service = new Service();
+			Locator.service.ScreenHeight=Locator.DeviceHeight;
+			Locator.service.ScreenWidth=Locator.DeviceWidth;	
+			
 			this.addChild(Locator.home);
 			this.addChild(Locator.weather);
 			this.addChild(Locator.events);
+			this.addChild(Locator.myDealer);
+			this.addChild(Locator.trips);
+			this.addChild(Locator.service);
 		}
 		
 		private function setDeviceSize():void
