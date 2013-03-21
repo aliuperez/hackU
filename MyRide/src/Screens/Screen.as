@@ -6,7 +6,7 @@ package Screens
 	
 	public class Screen extends Sprite
 	{
-		private var Locator:ViewModelLocator=ViewModelLocator.getInstance();
+		public var Locator:ViewModelLocator=ViewModelLocator.getInstance();
 		
 		public function Screen()
 		{
