@@ -86,7 +86,7 @@ package Screens
 					temp.text = Data.channel.item.yweather::condition.@temp + " °F";  
  
 				// find out what day tomorrow is
- 
+ 					tomorrow.text = getTomorrow(day);
 			
 			}
 			
@@ -97,27 +97,27 @@ package Screens
 				switch (day) 
 				{  
 					case "Sun":  
-						tomorrow.text = "Monday";  
+						tomorrow = "Monday";  
 						break;  
 					
 					case "Mon":  
-						tomorrow.text = "Tuesday";  
+						tomorrow = "Tuesday";  
 						break;  
 					
 					case "Tue":  
-						tomorrow.text = "Wednesday";  
+						tomorrow = "Wednesday";  
 						break;  
 					
 					case "Wed":  
-						tomorrow.text = "Thursday";  
+						tomorrow = "Thursday";  
 						break; 
 					
 					case "Thu":  
-						tomorrow.text = "Friday";  
+						tomorrow = "Friday";  
 						break;  
 					
 					case "Fri":  
-						tomorrow.text = "Saturday";  
+						tomorrow = "Saturday";  
 						break;  
 					
 					case "Sat":  
