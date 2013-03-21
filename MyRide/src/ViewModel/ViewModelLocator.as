@@ -1,5 +1,6 @@
 package ViewModel {
 
+	import Screens.Events;
 	import Screens.Home;
 	import Screens.Weather;
 
@@ -30,6 +31,7 @@ package ViewModel {
 		// Screens
 		public var weather:Weather;
 		public var home:Home;
+		public var events:Events;
 		
 		
 		//Specialized functions for the the model locator.

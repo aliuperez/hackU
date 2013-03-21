@@ -9,7 +9,7 @@ package Screens
 	
 	import Screens.Screen;
 	
-	import ViewModel.ViewModelLocator;
+	import Objects.GUI.EventsBTN;
 	
 	public class Home extends Screen
 	{		
@@ -32,7 +32,6 @@ package Screens
 		{
 			var homeBTN:HomeBTN = new HomeBTN();
 			this.addChild(homeBTN);
-			
 			var homeBTNParam:Object = {x:0,y:0,offsetX:Locator.DeviceWidth/2,offsetY:Locator.DeviceHeight/2};
 			new FluidObject(homeBTN,homeBTNParam);
 			
@@ -40,6 +39,11 @@ package Screens
 			this.addChild(weatherBTN);
 			var weatherBTNParam:Object = {x:0,y:0,offsetX:homeBTN.x + weatherBTN.width*1.5,offsetY:homeBTN.y};
 			new FluidObject(weatherBTN,weatherBTNParam);	
+			
+			var eventsBTN:EventsBTN = new EventsBTN();
+			this.addChild(eventsBTN);
+			var eventsBTNParam:Object = {x:0,y:0,offsetX:weatherBTN.x + eventsBTN.width*1.5,offsetY:weatherBTN.y};
+			new FluidObject(eventsBTN,eventsBTNParam);	
 			
 		}
 	}

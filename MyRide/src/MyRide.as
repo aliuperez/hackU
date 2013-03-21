@@ -9,6 +9,7 @@ package
 	import Screens.Weather;
 	
 	import ViewModel.ViewModelLocator;
+	import Screens.Events;
 	
 	//[SWF(frameRate="60",width="1280",height="720",backgroundColor="0x000000")]
 	
@@ -41,9 +42,11 @@ package
 		{
 			Locator.home = new Home();
 			Locator.weather = new Weather();
+			Locator.events = new Events();
 			
 			this.addChild(Locator.home);
 			this.addChild(Locator.weather);
+			this.addChild(Locator.events);
 		}
 		
 		private function setDeviceSize():void

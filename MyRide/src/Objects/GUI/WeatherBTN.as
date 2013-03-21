@@ -1,9 +1,12 @@
 package Objects.GUI
 {
+	import flash.display.Bitmap;
 	import flash.display.Shape;
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
+	
+	import Assets.Assets;
 	
 	import ViewModel.ViewModelLocator;
 	
@@ -41,6 +44,13 @@ package Objects.GUI
 			WeatherBTNSprite.graphics.endFill();
 			
 			this.addChild(WeatherBTNSprite);
+			
+			var icon:Bitmap = new Assets.Assets.WeatherIcon();
+			icon.width = WeatherBTNSprite.width;
+			icon.height = WeatherBTNSprite.height;
+			icon.x = Math.ceil(-icon.width/2);
+			icon.y = Math.ceil(-icon.height/2);
+			this.addChild(icon);
 		}
 	}
 }

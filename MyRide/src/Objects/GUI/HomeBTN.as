@@ -1,9 +1,12 @@
 package Objects.GUI
 {
+	import flash.display.Bitmap;
 	import flash.display.Shape;
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
+	
+	import Assets.Assets;
 	
 	import ViewModel.ViewModelLocator;
 	
@@ -39,8 +42,14 @@ package Objects.GUI
 			HomeBTNSprite.x = Math.ceil(-HomeBTNSprite.width/2);
 			HomeBTNSprite.y = Math.ceil(-HomeBTNSprite.height/2);
 			HomeBTNSprite.graphics.endFill();
-			
 			this.addChild(HomeBTNSprite);
+			
+			var icon:Bitmap = new Assets.Assets.HomeIcon();
+			icon.width = HomeBTNSprite.width;
+			icon.height = HomeBTNSprite.height;
+			icon.x = Math.ceil(-icon.width/2);
+			icon.y = Math.ceil(-icon.height/2);
+			this.addChild(icon);
 		}
 	}
 }
