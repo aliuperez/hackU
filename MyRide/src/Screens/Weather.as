@@ -59,43 +59,56 @@ package Screens
 				var homeBTN:HomeBTN = new HomeBTN();
 				this.addChild(homeBTN);
 				
-				var homeBTNParam:Object = {x:0,y:0,offsetX:Locator.DeviceWidth/2,offsetY:Locator.DeviceHeight/2};
+				var homeBTNParam:Object = {x:0,y:0,offsetX:homeBTN.width/2,offsetY:homeBTN.height/2};
 				new FluidObject(homeBTN,homeBTNParam);
 				
 			}
 			
 			private function placeText():void
 			{
+				
+				
 				//add kids
-				addChild(maxt);
-				addChild(mint);
+				//addChild(maxt);
+				//addChild(mint);
 				addChild(city);
-				addChild(humidity);
+				//addChild(humidity);
 				addChild(temp);
 				addChild(max);
 				addChild(min);
-				addChild(tomorrow);
+				//addChild(tomorrow);
 				addChild(today);
-				//move stuff
+			
+				
+				
+				var totalWidth:int = min.width + max.width + mint.width + maxt.width;
 				var Param:Object;
 				
+				//move stuff
+				Param = {x:0, y:0, offsetX:ScreenWidth/2 - totalWidth/2, offsetY:ScreenHeight/2};
+				new FluidObject(temp, Param);
 				
-				Param = {x:0,y:0,offsetX:10,offsetY:10};
-				new FluidObject(temp,Param);
-				/*
-				Param = {x:0,y:0, offsetX:temp.x, offsetY:temp.height+10};
+				Param = {x:0, y:0, offsetX:temp.x + temp.width/2, offsetY:temp.y - temp.height/2};
+				new FluidObject(today, Param);
+				
+				Param = {x:0, y:0, offsetX:temp.x, offsetY:temp.y+temp.height/2};
 				new FluidObject(min,Param);
 				
-				Param = {x:0,y:0,offsetX:min.width+10, offsetY:min.y};
+				Param = {x:0,y:0,offsetX:temp.x + min.width, offsetY:min.y};
 				new FluidObject(max,Param);
+			
 				
-				Param = {x:0,y:0,offsetX:40,offsetY:10};
+				Param = {x:0,y:0,offsetX:totalWidth/2+city.width/2, offsetY:min.y+min.height/2};
 				new FluidObject(city,Param);
 				
-				Param = {x:0,y:0,offsetX:40,offsetY:20};
-				new FluidObject(temp,Param);
 				
-				Param = {x:0,y:0,offsetX:40,offsetY:30};
+				
+				//Param = {x:0,y:0,offsetX:totalWidth/2, offsetY:temp.y};
+				//new FluidObject(tomorrow,Param);
+				/*
+				
+				
+				Param = {x:0,y:0,offsetX:ScreenWidth/2 - mint/2,offsetY:30};
 				new FluidObject(mint,Param);
 				
 				Param = {x:0,y:0,offsetX:40,offsetY:40};
@@ -146,40 +159,40 @@ package Screens
 			
 			private function getTomorrow(day:String):String
 			{
-				var tomorrow:String;
+				var tom:String;
 				
 				switch (day) 
 				{  
 					case "Sun":  
-						tomorrow = "Monday";  
+						tom = "Monday";  
 						break;  
 					
 					case "Mon":  
-						tomorrow = "Tuesday";  
+						tom = "Tuesday";  
 						break;  
 					
 					case "Tue":  
-						tomorrow = "Wednesday";  
+						tom = "Wednesday";  
 						break;  
 					
 					case "Wed":  
-						tomorrow = "Thursday";  
+						tom = "Thursday";  
 						break; 
 					
 					case "Thu":  
-						tomorrow = "Friday";  
+						tom = "Friday";  
 						break;  
 					
 					case "Fri":  
-						tomorrow = "Saturday";  
+						tom = "Saturday";  
 						break;  
 					
 					case "Sat":  
-						tomorrow = "Sunday"  
+						tom = "Sunday"  
 						break;  
 				} 
 				
-				return tomorrow;
+				return tom;
 			}
 	}
 }
