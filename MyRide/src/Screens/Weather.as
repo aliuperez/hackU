@@ -35,6 +35,7 @@ package Screens
 			private var max:TextField = new TextField();
 			private var min:TextField = new TextField();
 			private var tomorrow:TextField = new TextField();
+			private var today:TextField = new TextField();
 			
 		// Construct
 			public function Weather()
@@ -73,15 +74,19 @@ package Screens
 				addChild(temp);
 				addChild(max);
 				addChild(min);
-				//addChild();
-				
+				addChild(tomorrow);
+				addChild(today);
 				//move stuff
 				var Param:Object;
 				
-				Param = {x:0,y:0,offsetX:10,offsetY:0};
+				
+				Param = {x:0,y:0,offsetX:10,offsetY:10};
+				new FluidObject(temp,Param);
+				/*
+				Param = {x:0,y:0, offsetX:temp.x, offsetY:temp.height+10};
 				new FluidObject(min,Param);
 				
-				Param = {x:0,y:0,offsetX:40,offsetY:0};
+				Param = {x:0,y:0,offsetX:min.width+10, offsetY:min.y};
 				new FluidObject(max,Param);
 				
 				Param = {x:0,y:0,offsetX:40,offsetY:10};
@@ -95,7 +100,7 @@ package Screens
 				
 				Param = {x:0,y:0,offsetX:40,offsetY:40};
 				new FluidObject(maxt,Param);
-				
+				*/
 			}
 	
 	/* XML stuff */
