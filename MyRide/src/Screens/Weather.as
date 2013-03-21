@@ -9,8 +9,11 @@ package Screens
 	import flash.net.URLRequest;
 	import flash.text.TextField;
 	
-	import Screens.Screen;
 	import Dependencies.FluidLayout.FluidObject;
+	
+	import Objects.GUI.HomeBTN;
+	
+	import Screens.Screen;
 
 	public class Weather extends Screen
 	{
@@ -24,9 +27,9 @@ package Screens
 			private var URL:String; 
 			
 		// Text Fields
-			private var maxt:TextField = new TextField();
-			private var mint:TextField = new TextField();
-			private var city:TextField = new TextField();
+			private var maxt : TextField = new TextField();
+			private var mint : TextField = new TextField();
+			private var city : TextField = new TextField();
 			private var humidity:TextField = new TextField();
 			private var temp:TextField = new TextField();
 			private var max:TextField = new TextField();
@@ -37,7 +40,6 @@ package Screens
 			public function Weather()
 			{
 				super();
-				
 				this.addEventListener(Event.ADDED_TO_STAGE,init)
 			}
 			
@@ -45,10 +47,21 @@ package Screens
 			{
 				this.removeEventListener(Event.ADDED_TO_STAGE,init);
 				
+				createButtons();
 				requestRSS();
 				loadXML(URL);
 				placeText();
 			}			
+			
+			private function createButtons():void
+			{
+				var homeBTN:HomeBTN = new HomeBTN();
+				this.addChild(homeBTN);
+				
+				var homeBTNParam:Object = {x:0,y:0,offsetX:Locator.DeviceWidth/2,offsetY:Locator.DeviceHeight/2};
+				new FluidObject(homeBTN,homeBTNParam);
+				
+			}
 			
 			private function placeText():void
 			{
@@ -60,6 +73,7 @@ package Screens
 				addChild(temp);
 				addChild(max);
 				addChild(min);
+				//addChild();
 				
 				//move stuff
 				var Param:Object;

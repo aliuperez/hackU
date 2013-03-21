@@ -34,7 +34,7 @@ package
 			
 			createScreens();			
 			
-			Locator.weather.SwitchToScreen();
+			Locator.home.SwitchToScreen();
 		}
 		
 		private function createScreens():void
@@ -48,8 +48,8 @@ package
 		
 		private function setDeviceSize():void
 		{
-			Locator.DeviceHeight=0;
-			Locator.DeviceWidth=0;
+			Locator.DeviceHeight=720;
+			Locator.DeviceWidth=1280;
 		}
 	}
 }
