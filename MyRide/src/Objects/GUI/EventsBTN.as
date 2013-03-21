@@ -1,0 +1,56 @@
+package Objects.GUI
+{
+	import flash.display.Bitmap;
+	import flash.display.Shape;
+	import flash.display.Sprite;
+	import flash.events.Event;
+	import flash.events.MouseEvent;
+	
+	import Assets.Assets;
+	
+	import ViewModel.ViewModelLocator;
+	
+	public class EventsBTN extends Sprite
+	{
+		private var Locator:ViewModelLocator=ViewModelLocator.getInstance();
+		
+		public function EventsBTN()
+		{
+			super();
+			this.addEventListener(Event.ADDED_TO_STAGE, init);
+		}
+		
+		protected function init(event:Event):void
+		{
+			this.removeEventListener(Event.ADDED_TO_STAGE,init);
+			
+			Draw();
+			
+			this.addEventListener(MouseEvent.CLICK,click);
+		}
+		
+		protected function click(event:MouseEvent):void
+		{
+			Locator.events.SwitchToScreen();
+		}
+		
+		private function Draw():void
+		{
+			var EventsBTNSprite:Shape = new Shape();
+			EventsBTNSprite.graphics.beginFill(0x881D9D);
+			EventsBTNSprite.graphics.drawRect(0,0,64,64);
+			EventsBTNSprite.x = Math.ceil(-EventsBTNSprite.width/2);
+			EventsBTNSprite.y = Math.ceil(-EventsBTNSprite.height/2);
+			EventsBTNSprite.graphics.endFill();
+			
+			this.addChild(EventsBTNSprite);
+			
+			var icon:Bitmap = new Assets.Assets.EventsIcon();
+			icon.width = EventsBTNSprite.width;
+			icon.height = EventsBTNSprite.height;
+			icon.x = Math.ceil(-icon.width/2);
+			icon.y = Math.ceil(-icon.height/2);
+			this.addChild(icon);
+		}
+	}
+}
