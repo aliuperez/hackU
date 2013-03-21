@@ -1,0 +1,40 @@
+package Screens
+{
+	import flash.display.Sprite;
+	import flash.utils.*;
+	import ViewModel.ViewModelLocator;
+	
+	public class Screen extends Sprite
+	{
+		private var Locator:ViewModelLocator=ViewModelLocator.getInstance();
+		
+		public function Screen()
+		{
+			super();
+		}
+		
+		public function SwitchToScreen():void
+		{
+			var screen:String = getQualifiedClassName(this);
+			trace("screen: " + screen);
+			switch(screen)
+			{
+				case "[class Home]":
+					Locator.home.visible = true;
+					HideScreen(Locator.weather);
+					break;
+				
+				case "[class Weather]":
+					Locator.weather.visible = true;
+					HideScreen(Locator.home);
+					break;
+			}
+			this.visible = true;	
+		}
+		
+		public function HideScreen(ScreenName:Screen):void
+		{
+			ScreenName.visible = false;	
+		}
+	}
+}

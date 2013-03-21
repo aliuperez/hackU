@@ -4,8 +4,11 @@ package
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
 	import flash.events.Event;
-	import ViewModel.ViewModelLocator;
+	
+	import Screens.Home;
 	import Screens.Weather;
+	
+	import ViewModel.ViewModelLocator;
 	
 	//[SWF(frameRate="60",width="1280",height="720",backgroundColor="0x000000")]
 	
@@ -29,7 +32,10 @@ package
 			
 			setDeviceSize();
 			
+			Locator.home = new Home();
 			Locator.weather = new Weather();
+			
+			Locator.home.SwitchToScreen();
 		}
 		
 		private function setDeviceSize():void
