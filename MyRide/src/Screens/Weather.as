@@ -21,20 +21,27 @@ package Screens
 			
 		// URL of the RSS feed
 			private var URL:String; 
-		
+			
+		// Text Fields
+			private var maxt:TextField = new TextField();
+			private var mint:TextField = new TextField();
+			private var state:TextField = new TextField();
+			private var humidity:TextField = new TextField();
+			private var temp:TextField = new TextField();
+			private var max:TextField = new TextField();
+			private var min:TextField = new TextField();
+			private var tomorrow:TextField = new TextField();
+			
 		// Construct
 			public function Weather()
 			{
 				super();
 				
-				var maxt:TextField = new TextField();
-				var mint:TextField = new TextField();
-				var state:TextField = new TextField();
-				var humidity:TextField = new TextField();
-				var temp:TextField = new TextField();
-				var max:TextField = new TextField();
-				var min:TextField = new TextField();
-
+				
+				
+				requestRSS();
+				loadXML(URL);
+				
 			}
 	
 	/* XML stuff */
@@ -51,11 +58,11 @@ package Screens
 				var request:URLRequest = new URLRequest(xmlURL);  
 					
 				loader.load(request);  
-				loader.addEventListener(Event.COMPLETE, loadData);  
+				loader.addEventListener(Event.COMPLETE, readData);  
 			}  
 			
-		//	load data from XML
-			private function loadData(event:Event):void 
+		//	read data from XML
+			private function readData(event:Event):void 
 			{  
 				Data = new XML(event.currentTarget.data);  
 					
@@ -65,37 +72,46 @@ package Screens
 				var codeTomorrow:String = Data.channel.item.yweather::forecast[1].@code; 
 				
 				//Assigning the information to the text fields  
+				state.text = Data.channel.yweather::location.@city; 
 				maxt.text = Data.channel.item.yweather::forecast[1].@high + " °F";  
 				mint.text = Data.channel.item.yweather::forecast[1].@low + " °F";  
-				state.text = Data.channel.yweather::location.@city;  
+				max.text = Data.channel.item.yweather::forecast[0].@high + " °F";  
+				min.text = Data.channel.item.yweather::forecast[0].@low + " °F"; 
 				humidity.text = Data.channel.yweather::atmosphere.@humidity + " %";  
 				temp.text = Data.channel.item.yweather::condition.@temp + " °F";  
-				max.text = Data.channel.item.yweather::forecast[0].@high + " °F";  
-				min.text = Data.channel.item.yweather::forecast[0].@low + " °F";  
+ 
 				
-				switch (day) {  
+				switch (day) 
+				{  
 					case "Sun":  
 						tomorrow.text = "Monday";  
-						break;  
+					break;  
+					
 					case "Mon":  
 						tomorrow.text = "Tuesday";  
-						break;  
+					break;  
+					
 					case "Tue":  
 						tomorrow.text = "Wednesday";  
-						break;  
+					break;  
+					
 					case "Wed":  
 						tomorrow.text = "Thursday";  
-						break;  
+					break; 
+					
 					case "Thu":  
 						tomorrow.text = "Friday";  
-						break;  
+					break;  
+					
 					case "Fri":  
 						tomorrow.text = "Saturday";  
-						break;  
+					break;  
+					
 					case "Sat":  
 						tomorrow.text = "Sunday"  
-						break;  
-			}  
+					break;  
+				}  
 		
+			}
 	}
 }
