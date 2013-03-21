@@ -1,11 +1,16 @@
 package Screens
 {
 	import flash.display.Sprite;
-	import flash.utils.*;
+	import flash.utils.getDefinitionByName;
+	import flash.utils.getQualifiedClassName;
+	
 	import ViewModel.ViewModelLocator;
 	
 	public class Screen extends Sprite
 	{
+		private var _ScreenWidth:int;
+		private var _ScreenHeight:int;
+		
 		public var Locator:ViewModelLocator=ViewModelLocator.getInstance();
 		
 		public function Screen()
@@ -13,6 +18,26 @@ package Screens
 			super();
 		}
 		
+		public function get ScreenHeight():int
+		{
+			return _ScreenHeight;
+		}
+
+		public function set ScreenHeight(value:int):void
+		{
+			_ScreenHeight = value;
+		}
+
+		public function get ScreenWidth():int
+		{
+			return _ScreenWidth;
+		}
+
+		public function set ScreenWidth(value:int):void
+		{
+			_ScreenWidth = value;
+		}
+
 		public function SwitchToScreen():void
 		{
 			var screen:String =getDefinitionByName(getQualifiedClassName(this)).toString();

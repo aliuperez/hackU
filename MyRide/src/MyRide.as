@@ -41,9 +41,17 @@ package
 		private function createScreens():void
 		{
 			Locator.home = new Home();
-			Locator.weather = new Weather();
-			Locator.events = new Events();
+			Locator.home.ScreenHeight=Locator.DeviceHeight;
+			Locator.home.ScreenWidth=Locator.DeviceWidth;
 			
+			Locator.weather = new Weather();
+			Locator.weather.ScreenHeight=Locator.DeviceHeight;
+			Locator.weather.ScreenWidth=Locator.DeviceWidth;
+			
+			Locator.events = new Events();
+			Locator.events.ScreenHeight=Locator.DeviceHeight;
+			Locator.events.ScreenWidth=Locator.DeviceWidth;					
+
 			this.addChild(Locator.home);
 			this.addChild(Locator.weather);
 			this.addChild(Locator.events);
