@@ -1,4 +1,4 @@
-﻿package MovieClips.GUI.FluidLayout
+﻿package Dependencies.FluidLayout
 {
 
 	/* class needed on resize Event */
