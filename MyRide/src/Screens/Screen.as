@@ -15,16 +15,18 @@ package Screens
 		
 		public function SwitchToScreen():void
 		{
-			var screen:String = getQualifiedClassName(this);
-			trace("screen: " + screen);
+			var screen:String =getDefinitionByName(getQualifiedClassName(this)).toString();
+			//trace("screen: " + screen);
 			switch(screen)
 			{
 				case "[class Home]":
+					trace("Weather Screen Active!!");
 					Locator.home.visible = true;
 					HideScreen(Locator.weather);
 					break;
 				
 				case "[class Weather]":
+					trace("Weather Screen Active!!");
 					Locator.weather.visible = true;
 					HideScreen(Locator.home);
 					break;

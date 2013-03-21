@@ -37,12 +37,17 @@ package Screens
 			{
 				super();
 				
+				this.addEventListener(Event.ADDED_TO_STAGE,init)
+			}
+			
+			protected function init(event:Event):void
+			{
+				this.removeEventListener(Event.ADDED_TO_STAGE,init);
+				
 				requestRSS();
 				loadXML(URL);
 				placeText();
-				
-			}
-			
+			}			
 			
 			private function placeText():void
 			{

@@ -32,10 +32,18 @@ package
 			
 			setDeviceSize();
 			
+			createScreens();			
+			
+			Locator.weather.SwitchToScreen();
+		}
+		
+		private function createScreens():void
+		{
 			Locator.home = new Home();
 			Locator.weather = new Weather();
 			
-			Locator.home.SwitchToScreen();
+			this.addChild(Locator.home);
+			this.addChild(Locator.weather);
 		}
 		
 		private function setDeviceSize():void
