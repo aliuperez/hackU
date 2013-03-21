@@ -1,6 +1,8 @@
 package ViewModel {
 
+	import Screens.Home;
 	import Screens.Weather;
+
 	public class ViewModelLocator
 	{
 		
@@ -25,8 +27,11 @@ package ViewModel {
 		public var DeviceHeight:int;
 		public var DeviceWidth:int;
 		
-		// DEFINE VIEW CONSTANTS
+		// Screens
 		public var weather:Weather;
+		public var home:Home;
+		
+		
 		//Specialized functions for the the model locator.
 		
 	}

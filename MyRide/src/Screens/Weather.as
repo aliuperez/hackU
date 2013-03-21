@@ -4,13 +4,14 @@
  */
 package Screens
 {
-	import flash.display.Sprite;
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
 	import flash.events.Event;
 	import flash.text.TextField;
+	
+	import Screens.Screen;
 
-	public class Weather extends Sprite
+	public class Weather extends Screen
 	{
 		// WOEID used for getting the RSS feed from Yahoo
 			private var locationNumber:int = 2379200;
