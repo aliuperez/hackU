@@ -20,7 +20,6 @@ package Screens
 		// URL of the RSS feed
 			private var URL:String; 
 		
-		
 		// Construct
 			public function Weather()
 			{
@@ -34,7 +33,6 @@ package Screens
 				URL = "http://weather.yahooapis.com/forecastrss" + "?w=" + locationNumber + "&u=" + "f";
 			}
 			
-		
 		//	load an XML document
 			private function loadXML(xmlURL:String):void 
 			{  
