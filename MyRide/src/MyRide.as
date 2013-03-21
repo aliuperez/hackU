@@ -59,8 +59,8 @@ package
 		
 		private function setDeviceSize():void
 		{
-			Locator.DeviceHeight=720;
-			Locator.DeviceWidth=1280;
+			Locator.DeviceHeight=800;
+			Locator.DeviceWidth=600;
 		}
 	}
 }
