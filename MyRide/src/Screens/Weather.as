@@ -4,9 +4,9 @@
  */
 package Screens
 {
+	import flash.events.Event;
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
-	import flash.events.Event;
 	import flash.text.TextField;
 	
 	import Screens.Screen;
@@ -37,11 +37,16 @@ package Screens
 			{
 				super();
 				
-				
-				
 				requestRSS();
 				loadXML(URL);
+				placeText();
 				
+			}
+			
+			
+			private function placeText():void
+			{
+				//move stuff
 			}
 	
 	/* XML stuff */
@@ -72,46 +77,55 @@ package Screens
 				var codeTomorrow:String = Data.channel.item.yweather::forecast[1].@code; 
 				
 				//Assigning the information to the text fields  
-				state.text = Data.channel.yweather::location.@city; 
-				maxt.text = Data.channel.item.yweather::forecast[1].@high + " °F";  
-				mint.text = Data.channel.item.yweather::forecast[1].@low + " °F";  
-				max.text = Data.channel.item.yweather::forecast[0].@high + " °F";  
-				min.text = Data.channel.item.yweather::forecast[0].@low + " °F"; 
-				humidity.text = Data.channel.yweather::atmosphere.@humidity + " %";  
-				temp.text = Data.channel.item.yweather::condition.@temp + " °F";  
+					state.text = Data.channel.yweather::location.@city; 
+					maxt.text = Data.channel.item.yweather::forecast[1].@high + " °F";  
+					mint.text = Data.channel.item.yweather::forecast[1].@low + " °F";  
+					max.text = Data.channel.item.yweather::forecast[0].@high + " °F";  
+					min.text = Data.channel.item.yweather::forecast[0].@low + " °F"; 
+					humidity.text = Data.channel.yweather::atmosphere.@humidity + " %";  
+					temp.text = Data.channel.item.yweather::condition.@temp + " °F";  
  
+				// find out what day tomorrow is
+ 
+			
+			}
+			
+			private function getTomorrow(day:String):String
+			{
+				var tomorrow:String;
 				
 				switch (day) 
 				{  
 					case "Sun":  
 						tomorrow.text = "Monday";  
-					break;  
+						break;  
 					
 					case "Mon":  
 						tomorrow.text = "Tuesday";  
-					break;  
+						break;  
 					
 					case "Tue":  
 						tomorrow.text = "Wednesday";  
-					break;  
+						break;  
 					
 					case "Wed":  
 						tomorrow.text = "Thursday";  
-					break; 
+						break; 
 					
 					case "Thu":  
 						tomorrow.text = "Friday";  
-					break;  
+						break;  
 					
 					case "Fri":  
 						tomorrow.text = "Saturday";  
-					break;  
+						break;  
 					
 					case "Sat":  
-						tomorrow.text = "Sunday"  
-					break;  
-				}  
-		
+						tomorrow = "Sunday"  
+						break;  
+				} 
+				
+				return tomorrow;
 			}
 	}
 }
