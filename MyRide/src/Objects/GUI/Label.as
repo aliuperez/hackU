@@ -64,7 +64,7 @@ package Objects.GUI
 			
 			if(_LineThickness!=0)// no border means it is a title
 			{
-				textSize = Label.height/7;
+				textSize = Label.height/5;
 			}
 			
 			var myFormat : TextFormat = new TextFormat();

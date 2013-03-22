@@ -23,8 +23,8 @@ package Screens
 	{			
 		
 		//hardcoded demo information
-		private var eventTitleArray : Array = new Array("Women's Garage Party","21st Annual Spring Bike Show","Poker Run","Motorcycle Bootcamp","Turner's Honda Dinner Ride");
-		private var eventDistanceArray : Array = new Array("5.4","8.8","11.9","13.5","35.2");
+		private var eventTitleArray : Array = new Array("   5.4 mi - Women's Garage Party","   8.8 mi - 21st Annual Spring Bike Show","   11.9 mi - Poker Run","   13.5 mi - Motorcycle Bootcamp","   35.2 mi - Turner's Honda Dinner Ride");
+		private var eventDistanceArray : Array = new Array("","","","","");
 		private var eventHostArray : Array = new Array("Southside Harley-Davidson\n" +
 													   "385 N. Witchduck Road\n" +
 													   "Virginia Beach, VA 23462",
