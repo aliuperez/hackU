@@ -101,11 +101,11 @@ package Screens
 			
 			Param = {x:0,y:0,offsetX:ScreenWidth-specialsBTN.width/2,offsetY:ScreenHeight-specialsBTN.height};
 			new FluidObject(specialsBTN,Param);
-			
+			/*
 			var phoneBTN:PhoneBTN = new PhoneBTN();
 			this.addChild(phoneBTN);
 			Param = {x:0,y:0,offsetX:ScreenWidth-phoneBTN.width,offsetY:ScreenHeight/2};
-			new FluidObject(phoneBTN,Param);			
+			new FluidObject(phoneBTN,Param);*/	
 		}
 		
 		public function gotoSite():void
@@ -129,10 +129,7 @@ package Screens
 			myFormat.size = 20;
 			myFormat.font = "Arial";
 			myFormat.color = 0xFFFFFF; 
-			//myFormat.align = TextFormatAlign.CENTER;
-			
-			var square:Sprite = new Sprite();
-			addChild(square);
+			myFormat.align = "center";
 			
 			
 			dealerText.text = myDealer;
@@ -172,13 +169,6 @@ package Screens
 			Param = {x:0, y:0, offsetX:ScreenWidth/2-dealerText.width/2, offsetY:phoneText.y + phoneText.height/4};
 			new FluidObject(addressText, Param);
 			
-			
-			square.graphics.beginFill(0x0178bd);
-			square.graphics.drawRect(0,0,ScreenWidth,ScreenHeight);
-			square.graphics.endFill();
-			square.x = ScreenWidth/2-square.width/2;
-			square.y = homeBTN.height;
-			square.width = ScreenWidth;
 		}
 		
 		
