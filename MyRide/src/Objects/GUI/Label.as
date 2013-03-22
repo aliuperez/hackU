@@ -75,6 +75,7 @@ package Objects.GUI
 				myFormat.align = "center";
 			}
 			
+			text.selectable=false;
 			text.border = false;
 			text.width=Label.width;
 			text.height=textSize+10;

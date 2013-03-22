@@ -14,6 +14,10 @@ package Objects.GUI
 	
 	public class EventsBTN extends Sprite
 	{
+		public var EventsBTNSprite:Shape;
+		public var icon:Bitmap;
+		public var text:TextField
+		
 		private var Locator:ViewModelLocator=ViewModelLocator.getInstance();
 		
 		public function EventsBTN()
@@ -38,7 +42,7 @@ package Objects.GUI
 		
 		private function Draw():void
 		{
-			var EventsBTNSprite:Shape = new Shape();
+			EventsBTNSprite = new Shape();
 			EventsBTNSprite.graphics.beginFill(0x0f0f0f);
 			EventsBTNSprite.graphics.drawRect(0,0,Locator.DeviceWidth*0.35,Locator.DeviceHeight*0.25);
 			EventsBTNSprite.x = Math.ceil(-EventsBTNSprite.width/2);
@@ -48,7 +52,7 @@ package Objects.GUI
 			this.addChild(EventsBTNSprite);
 			
 			
-			var icon:Bitmap = new Assets.Assets.EventsIcon();
+			icon = new Assets.Assets.EventsIcon();
 			icon.width = Math.min(EventsBTNSprite.width,EventsBTNSprite.height)*0.75;
 			icon.height = icon.width;
 			icon.x = -icon.width/2;
@@ -62,8 +66,8 @@ package Objects.GUI
 			myFormat.align ="center";
 			myFormat.color = 0xFFFFFF;
 			
-			var text:TextField = new TextField();
-			
+			text = new TextField();
+			text.selectable=false;
 			text.border = false;
 			text.width=EventsBTNSprite.width;
 			text.height=textSize*1.25;

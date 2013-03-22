@@ -14,6 +14,10 @@ package Objects.GUI
 	
 	public class WeatherBTN extends Sprite
 	{
+		public var WeatherBTNSprite:Shape;
+		public var icon:Bitmap;
+		public var text:TextField
+		
 		private var Locator:ViewModelLocator=ViewModelLocator.getInstance();
 		
 		public function WeatherBTN()
@@ -38,7 +42,7 @@ package Objects.GUI
 		
 		private function Draw():void
 		{
-			var WeatherBTNSprite:Shape = new Shape();
+			WeatherBTNSprite = new Shape();
 			WeatherBTNSprite.graphics.beginFill(0xea1c25);
 			WeatherBTNSprite.graphics.drawRect(0,0,Locator.DeviceWidth*0.55,Locator.DeviceHeight*0.15);
 			WeatherBTNSprite.x = Math.ceil(-WeatherBTNSprite.width/2);
@@ -46,7 +50,7 @@ package Objects.GUI
 			WeatherBTNSprite.graphics.endFill();
 			this.addChild(WeatherBTNSprite);
 			
-			var icon:Bitmap = new Assets.Assets.WeatherIcon();
+			icon = new Assets.Assets.WeatherIcon();
 			icon.width = Math.min(WeatherBTNSprite.width,WeatherBTNSprite.height)*0.75;
 			icon.height = icon.width;
 			icon.x = -WeatherBTNSprite.width/2;
@@ -60,8 +64,8 @@ package Objects.GUI
 			myFormat.align ="center";
 			myFormat.color = 0xFFFFFF;
 			
-			var text:TextField = new TextField();
-			
+			text = new TextField();
+			text.selectable=false;
 			text.border = false;
 			text.width=WeatherBTNSprite.width;
 			text.height=textSize*1.25;

@@ -14,6 +14,10 @@ package Objects.GUI
 	
 	public class MyDealerBTN extends Sprite
 	{
+		public var MyDealerBTNSprite:Shape;
+		public var icon:Bitmap;
+		public var text:TextField
+		
 		private var Locator:ViewModelLocator=ViewModelLocator.getInstance();
 		
 		public function MyDealerBTN()
@@ -38,7 +42,7 @@ package Objects.GUI
 		
 		private function Draw():void
 		{
-			var MyDealerBTNSprite:Shape = new Shape();
+			MyDealerBTNSprite = new Shape();
 			MyDealerBTNSprite.graphics.beginFill(0x0178bd);
 			MyDealerBTNSprite.graphics.drawRect(0,0,Locator.DeviceWidth*0.65,Locator.DeviceHeight*0.10);
 			MyDealerBTNSprite.x = Math.ceil(-MyDealerBTNSprite.width/2);
@@ -47,7 +51,7 @@ package Objects.GUI
 			
 			this.addChild(MyDealerBTNSprite);
 			
-			var icon:Bitmap = new Assets.Assets.MyDealerIcon();
+			icon = new Assets.Assets.MyDealerIcon();
 			icon.width = Math.min(MyDealerBTNSprite.width,MyDealerBTNSprite.height)*0.75;
 			icon.height = icon.width;
 			icon.x = -MyDealerBTNSprite.width/2+icon.width/2;
@@ -61,8 +65,8 @@ package Objects.GUI
 			myFormat.align ="center";
 			myFormat.color = 0xFFFFFF;
 			
-			var text:TextField = new TextField();
-			
+			text = new TextField();
+			text.selectable=false;
 			text.border = false;
 			text.width=MyDealerBTNSprite.width;
 			text.height=textSize*1.25;

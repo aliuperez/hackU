@@ -14,6 +14,10 @@ package Objects.GUI
 	
 	public class TripsBTN extends Sprite
 	{
+		public var TripsBTNSprite:Shape;
+		public var icon:Bitmap;
+		public var text:TextField
+		
 		private var Locator:ViewModelLocator=ViewModelLocator.getInstance();
 		
 		public function TripsBTN()
@@ -38,7 +42,7 @@ package Objects.GUI
 		
 		private function Draw():void
 		{
-			var TripsBTNSprite:Shape = new Shape();
+			TripsBTNSprite = new Shape();
 			TripsBTNSprite.graphics.beginFill(0x0f0f0f);
 			TripsBTNSprite.graphics.drawRect(0,0,Locator.DeviceWidth*0.45,Locator.DeviceHeight*0.15);//2nd number is the aspect ratio
 			TripsBTNSprite.x = Math.ceil(-TripsBTNSprite.width/2);
@@ -47,7 +51,7 @@ package Objects.GUI
 			
 			this.addChild(TripsBTNSprite);
 					
-			var icon:Bitmap = new Assets.Assets.TripsIcon();
+			icon= new Assets.Assets.TripsIcon();
 			icon.width = Math.min(TripsBTNSprite.width,TripsBTNSprite.height)*0.75;
 			icon.height = icon.width;
 			icon.x = TripsBTNSprite.width/2-icon.width;
@@ -57,13 +61,12 @@ package Objects.GUI
 			var myFormat : TextFormat = new TextFormat();
 			var textSize:int = icon.height/4;
 			myFormat.size = textSize;
-			
 			myFormat.align ="center";
 			myFormat.rightMargin = TripsBTNSprite.width*0.3;
 			myFormat.color = 0xFFFFFF;
 			
-			var text:TextField = new TextField();
-			
+			text = new TextField();
+			text.selectable=false;			
 			text.border = false;
 			text.width=TripsBTNSprite.width*0.75;
 			text.height=textSize*1.25;

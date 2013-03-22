@@ -14,6 +14,10 @@ package Objects.GUI
 	
 	public class ServiceBTN extends Sprite
 	{
+		public var ServiceBTNSprite:Shape;
+		public var icon:Bitmap;
+		public var text:TextField
+		
 		private var Locator:ViewModelLocator=ViewModelLocator.getInstance();
 		
 		public function ServiceBTN()
@@ -38,7 +42,7 @@ package Objects.GUI
 		
 		private function Draw():void
 		{
-			var ServiceBTNSprite:Shape = new Shape();
+			ServiceBTNSprite = new Shape();
 			ServiceBTNSprite.graphics.beginFill(0xea1c25);
 			ServiceBTNSprite.graphics.drawRect(0,0,Locator.DeviceWidth*0.65,Locator.DeviceHeight*0.15);
 			ServiceBTNSprite.x = Math.ceil(-ServiceBTNSprite.width/2);
@@ -47,7 +51,7 @@ package Objects.GUI
 			
 			this.addChild(ServiceBTNSprite);
 			
-			var icon:Bitmap = new Assets.Assets.ServiceIcon();
+			icon = new Assets.Assets.ServiceIcon();
 			icon.width = Math.min(ServiceBTNSprite.width,ServiceBTNSprite.height)*0.75;
 			icon.height = icon.width;
 			icon.x = ServiceBTNSprite.width/2-icon.width;
@@ -62,8 +66,8 @@ package Objects.GUI
 			//myFormat.leftMargin = MyDealerBTNSprite.width*0.3;
 			myFormat.color = 0xFFFFFF;
 			
-			var text:TextField = new TextField();
-			
+			text = new TextField();
+			text.selectable=false;
 			text.border = false;
 			text.width=ServiceBTNSprite.width;
 			text.height=textSize*1.25;
