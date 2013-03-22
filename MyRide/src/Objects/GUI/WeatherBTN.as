@@ -58,7 +58,7 @@ package Objects.GUI
 			this.addChild(icon);
 			
 			var myFormat : TextFormat = new TextFormat();
-			var textSize:int = icon.height/2;
+			var textSize:int = icon.height/3;
 			myFormat.size = textSize;
 			
 			myFormat.align ="center";
@@ -67,11 +67,11 @@ package Objects.GUI
 			text = new TextField();
 			text.selectable=false;
 			text.border = false;
-			text.width=WeatherBTNSprite.width;
+			text.width=WeatherBTNSprite.width*0.75;
 			text.height=textSize*1.25;
 			text.text = "Weather";
 			text.setTextFormat(myFormat);
-			text.x = -text.width/2;
+			text.x = WeatherBTNSprite.x+WeatherBTNSprite.width/2-text.width/3;
 			text.y = WeatherBTNSprite.y+WeatherBTNSprite.height/2-text.height/2;
 			this.addChild(text);
 		}
