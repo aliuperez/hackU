@@ -75,7 +75,8 @@ package Screens
 			var count:int = 1;
 			for(var i:int = 0;i<EventTitles.length;i++)
 			{
-					Param = {x:0, y:0, offsetX:EventTitles[i].width/2, offsetY:(homeBTN.y+homeBTN.height/2+EventTitles[i].height/2)*count};
+				trace(homeBTN.x);
+					Param = {x:0, y:0, offsetX:EventTitles[i].width/2, offsetY:((-homeBTN.height/2+EventTitles[i].height)*count)-5};
 					new FluidObject(EventTitles[i], Param);				
 				
 				count++

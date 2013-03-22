@@ -39,17 +39,18 @@ package Objects.GUI
 			var HomeBTNSprite:Shape = new Shape();
 			HomeBTNSprite.graphics.beginFill(0x131DA6);
 			HomeBTNSprite.graphics.drawRect(0,0,64,64);
-			HomeBTNSprite.x = Math.ceil(-HomeBTNSprite.width/2);
-			HomeBTNSprite.y = Math.ceil(-HomeBTNSprite.height/2);
 			HomeBTNSprite.graphics.endFill();
 			this.addChild(HomeBTNSprite);
+			HomeBTNSprite.x = Math.ceil(-HomeBTNSprite.width/2);
+			HomeBTNSprite.y = Math.ceil(-HomeBTNSprite.height/2);
 			
 			var icon:Bitmap = new Assets.Assets.HomeIcon();
 			icon.width = HomeBTNSprite.width;
 			icon.height = HomeBTNSprite.height;
-			icon.x = HomeBTNSprite.x-HomeBTNSprite.width/2+icon.width/2;
-			icon.y = HomeBTNSprite.y-HomeBTNSprite.height/2+icon.height/2;
 			this.addChild(icon);
+			
+			icon.x = Math.ceil(HomeBTNSprite.x-HomeBTNSprite.width/2+icon.width/2);
+			icon.y = Math.ceil(HomeBTNSprite.y-HomeBTNSprite.height/2+icon.height/2);
 		}
 	}
 }
