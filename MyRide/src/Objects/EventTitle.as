@@ -34,7 +34,15 @@ package Objects
 		
 		private function draw():void
 		{
-			var EventTitlesLBL:Label = new Label(_Title,1,Locator.DeviceWidth,(Locator.DeviceHeight-32)/5);
+			var tab:String = new String();
+
+			for(var i:int=0;i<Locator.DeviceWidth/8;i++)
+			{
+				tab +=" ";
+			}
+
+			
+			var EventTitlesLBL:Label = new Label(_Title+tab+_Distance,1,Locator.DeviceWidth,(Locator.DeviceHeight-Locator.DeviceHeight*0.10)/5);
 			this.addChild(EventTitlesLBL);
 		}
 

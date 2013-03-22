@@ -6,6 +6,7 @@ package Objects.GUI
 	import flash.events.Event;
 	import flash.events.MouseEvent;
 	import flash.text.TextField;
+	import flash.text.TextFormat;
 	
 	import Assets.Assets;
 	
@@ -59,12 +60,19 @@ package Objects.GUI
 			
 			this.addChild(Label);
 			
-			var text:TextField = new TextField();
+			var myFormat : TextFormat = new TextFormat();
+			
+			myFormat.size = 20;
+			myFormat.leftMargin = Label.width * .1;
+			
+			var text:TextField = new TextField();			
 			Label.graphics.beginFill(0x000000);
-			text.x = Label.x + Label.width/2;
+			text.width=Label.width;
+			text.x = Label.x;
 			text.y = Label.y + Label.height/2;
 			text.text = _LabelText;
 			Label.graphics.endFill();
+			text.setTextFormat(myFormat);
 			this.addChild(text);
 		}
 		
