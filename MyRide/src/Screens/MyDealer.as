@@ -4,19 +4,20 @@
 package Screens
 {
 	import flash.events.Event;
+	import flash.net.URLRequest;
+	import flash.net.navigateToURL;
 	
 	import Dependencies.FluidLayout.FluidObject;
 	
 	import Objects.GUI.HomeBTN;
-	import flash.net.URLRequest;
-	import flash.net.navigateToURL;
 
 	public class MyDealer extends Screen
 	{
 		public var myDealer:String = "Honda Dealer";
-		public var dealerNumber = "tel:17576174739";
-		private var dealerAddress1 = "123 Whatever Dr.";
-		private var dealerAddress2 = "Chesapeake VA, 23320";
+		public var phoneNumber:String = "tel:17576174739";
+		private var Address1 = "123 Whatever Dr.";
+		private var Address2 = "Chesapeake VA, 23320";
+		private var website = "www.someBusiness.com";
 		
 		
 		
@@ -31,6 +32,8 @@ package Screens
 		protected function init(event:Event):void
 		{
 			this.removeEventListener(Event.ADDED_TO_STAGE,init);
+			
+			gotoSite();
 			createButtons();
 		}
 		
@@ -60,7 +63,13 @@ package Screens
 		
 		private function makeCall():void
 		{
-			var targetURL:URLRequest = new URLRequest(dealerNumber);
+			var targetURL:URLRequest = new URLRequest(phoneNumber);
+			navigateToURL(targetURL);
+		}
+		
+		private function gotoSite():void
+		{
+			var targetURL:URLRequest = new URLRequest(website);
 			navigateToURL(targetURL);
 		}
 		
