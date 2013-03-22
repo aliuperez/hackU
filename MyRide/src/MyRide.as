@@ -14,6 +14,7 @@ package
 	import Screens.Service;
 	import Screens.Trips;
 	import flash.geom.Rectangle;
+	import Screens.Specials;
 	
 	[SWF(backgroundColor="0x4C4C4C")]
 	
@@ -68,12 +69,17 @@ package
 			Locator.service.ScreenHeight=Locator.DeviceHeight;
 			Locator.service.ScreenWidth=Locator.DeviceWidth;	
 			
+			Locator.specials = new Specials();
+			Locator.specials.ScreenHeight=Locator.DeviceHeight;
+			Locator.specials.ScreenWidth=Locator.DeviceWidth;	
+			
 			this.addChild(Locator.home);
 			this.addChild(Locator.weather);
 			this.addChild(Locator.events);
 			this.addChild(Locator.myDealer);
 			this.addChild(Locator.trips);
 			this.addChild(Locator.service);
+			this.addChild(Locator.specials);
 		}
 		
 		private function setDeviceSize():void

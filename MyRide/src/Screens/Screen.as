@@ -43,6 +43,7 @@ package Screens
 					HideScreen(Locator.myDealer);
 					HideScreen(Locator.service);
 					HideScreen(Locator.trips);
+					HideScreen(Locator.specials);
 					this.visible = true;	
 					
 					
@@ -55,6 +56,7 @@ package Screens
 					HideScreen(Locator.myDealer);
 					HideScreen(Locator.service);
 					HideScreen(Locator.trips);
+					HideScreen(Locator.specials);
 					this.visible = true;	
 					break;
 				
@@ -65,6 +67,7 @@ package Screens
 					HideScreen(Locator.myDealer);
 					HideScreen(Locator.service);
 					HideScreen(Locator.trips);
+					HideScreen(Locator.specials);
 					this.visible = true;	
 					break;
 				
@@ -75,6 +78,7 @@ package Screens
 					HideScreen(Locator.events);
 					HideScreen(Locator.service);
 					HideScreen(Locator.trips);
+					HideScreen(Locator.specials);
 					this.visible = true;	
 					break;
 				
@@ -85,12 +89,25 @@ package Screens
 					HideScreen(Locator.myDealer);
 					HideScreen(Locator.service);
 					HideScreen(Locator.events);
+					HideScreen(Locator.specials);
 					this.visible = true;	
 					break;
 				
 				case "[class Service]":
 					trace("Service Screen Active!!");
 					HideScreen(Locator.home);
+					HideScreen(Locator.weather);
+					HideScreen(Locator.myDealer);
+					HideScreen(Locator.events);
+					HideScreen(Locator.trips);
+					HideScreen(Locator.specials);
+					this.visible = true;	
+					break;
+				
+				case "[class Specials]":
+					trace("Specials Screen Active!!");
+					HideScreen(Locator.home);
+					HideScreen(Locator.service);
 					HideScreen(Locator.weather);
 					HideScreen(Locator.myDealer);
 					HideScreen(Locator.events);

@@ -8,6 +8,9 @@ package Assets
 		[Embed(source="../Assets/Icons/calendar.png")]
 		public static const Calendar:Class;
 		
+		[Embed(source="../Assets/Icons/special_icon.png")]
+		public static const SpecialsIcon:Class;
+		
 		[Embed(source="../Assets/Icons/home_button_icon_black.png")]
 		public static const HomeIcon:Class;
 		
