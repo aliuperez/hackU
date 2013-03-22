@@ -8,6 +8,7 @@ package Screens
 	
 	import Dependencies.FluidLayout.FluidObject;
 	
+	import Objects.GUI.EventsBTN;
 	import Objects.GUI.HomeBTN;
 	
 	import Screens.Screen;
@@ -57,9 +58,10 @@ package Screens
 				var homeBTN:HomeBTN = new HomeBTN();
 				this.addChild(homeBTN);
 				
-				var homeBTNParam:Object = {x:0,y:0,offsetX:homeBTN.width/2,offsetY:homeBTN.height/2};
-				new FluidObject(homeBTN,homeBTNParam);
+
 				
+				var Param:Object = {x:0,y:0,offsetX:homeBTN.width/2,offsetY:homeBTN.height/2};
+				new FluidObject(homeBTN,Param);		
 			}
 			
 
