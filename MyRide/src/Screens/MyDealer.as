@@ -15,6 +15,7 @@ package Screens
 	import Objects.GUI.EventsBTN;
 	import Objects.GUI.HomeBTN;
 	import Objects.GUI.Label;
+	import Objects.GUI.SpecialsBTN;
 
 
 	public class MyDealer extends Screen
@@ -78,14 +79,21 @@ package Screens
 			homeBTN = new HomeBTN();
 			this.addChild(homeBTN);
 			
-			var eventsBTN:EventsBTN = new EventsBTN();
-			this.addChild(eventsBTN);
-			
 			Param = {x:0,y:0,offsetX:homeBTN.width/2,offsetY:homeBTN.height/2};
 			new FluidObject(homeBTN,Param);
 			
+			var eventsBTN:EventsBTN = new EventsBTN();
+			this.addChild(eventsBTN);
+			
 			Param = {x:0,y:0,offsetX:eventsBTN.width/2,offsetY:ScreenHeight-eventsBTN.height};
 			new FluidObject(eventsBTN,Param);
+			
+			var specialsBTN:SpecialsBTN = new SpecialsBTN();
+			this.addChild(specialsBTN);
+			
+			Param = {x:0,y:0,offsetX:ScreenWidth-specialsBTN.width/2,offsetY:ScreenHeight-specialsBTN.height};
+			new FluidObject(specialsBTN,Param);
+			
 			
 		}
 		

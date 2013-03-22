@@ -51,7 +51,7 @@ package Screens
 		{
 			var Param:Object;
 			
-			titleLBL = new Label("Specials",0,Locator.DeviceWidth-homeBTN.width,homeBTN.height,0,true,0x0f0f0f,0xFFFFFF);
+			titleLBL = new Label("Specials",0,Locator.DeviceWidth-homeBTN.width,homeBTN.height,0,true,0xea1c25,0xFFFFFF);
 			this.addChild(titleLBL);
 			
 			Param = {x:0, y:0, offsetX:Locator.DeviceWidth-titleLBL.width/2, offsetY:titleLBL.height/2};

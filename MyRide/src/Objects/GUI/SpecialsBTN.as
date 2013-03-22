@@ -37,7 +37,7 @@ package Objects.GUI
 		private function Draw():void
 		{
 			var SpecialsBTNSprite:Shape = new Shape();
-			SpecialsBTNSprite.graphics.beginFill(0x4C4C4C);
+			SpecialsBTNSprite.graphics.beginFill(0xea1c25);
 			SpecialsBTNSprite.graphics.drawRect(0,0,Locator.DeviceHeight*0.10,Locator.DeviceHeight*0.1);
 			SpecialsBTNSprite.graphics.endFill();
 			this.addChild(SpecialsBTNSprite);
