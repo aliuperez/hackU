@@ -45,7 +45,7 @@ package Screens
 		{
 			this.removeEventListener(Event.ADDED_TO_STAGE,init);
 			
-			getDirections();
+			//getDirections();
 			createButtons();
 			createTitle();
 			placeText();

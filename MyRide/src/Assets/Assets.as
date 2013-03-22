@@ -29,5 +29,23 @@ package Assets
 		[Embed(source="../Assets/Icons/road_icon.png")]
 		public static const TripsIcon:Class;
 		
+		
+	// weather
+		[Embed(source="../Assets/Icons/rain_icon.png")]
+		public static const rainIcon:Class;
+		
+		[Embed(source="../Assets/Icons/snow_icon.png")]
+		public static const snowIcon:Class;
+		
+		[Embed(source="../Assets/Icons/sun_icon.png")]
+		public static const sunIcon:Class;
+		
+		[Embed(source="../Assets/Icons/thunder_icon.png")]
+		public static const thunderIcon:Class;
+		
+		[Embed(source="../Assets/Icons/cloud_icon.png")]
+		public static const cloudIcon:Class;
+		
+		
 	}
 }
