@@ -25,7 +25,7 @@ package Screens
 		public var areaCode:String = "757";
 		public var phone1:String = "617";
 		public var phone2:String = "4739";
-		private var Address1:String = "123 Whatever Dr.";
+		private var Address1:String = "1611 Stillwood st.";
 		private var Address2:String = "Chesapeake VA, 23320";
 		private var website:String = "http://powersports.honda.com/";
 		
@@ -44,7 +44,7 @@ package Screens
 		{
 			this.removeEventListener(Event.ADDED_TO_STAGE,init);
 			
-			//gotoSite();
+			getDirections();
 			createButtons();
 			createTitle();
 			placeText();
@@ -137,8 +137,8 @@ package Screens
 		
 		private function getDirections():void
 		{
-			//var targetURL:URLRequest = new URLRequest(dealerNumber);
-			//navigateToURL(targetURL);
+			var targetURL:URLRequest = new URLRequest("http://maps.google.com/?q="+Address1+Address2);
+			navigateToURL(targetURL);
 		}
 		
 		private function makeCall():void
@@ -152,16 +152,9 @@ package Screens
 			var targetURL:URLRequest = new URLRequest(website);
 			navigateToURL(targetURL);
 		}
+	
 		
-		private function gotoEvents():void
-		{
-			//go to the events page
-		}
-		
-		private function gotoSpecials():void
-		{
-			//go to specials page
-		}
+
 		
 		private function gotoSetDealer():void
 		{

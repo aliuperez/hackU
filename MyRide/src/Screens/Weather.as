@@ -19,13 +19,13 @@ package Screens
 	public class Weather extends Screen
 	{
 		// WOEID used for getting the RSS feed from Yahoo
-			private var locationNumber:int = 2379200;
+			private var locationNumber:int = 2460389;
 		
 		// data from the RSS feed
 			private var Data:XML;  
 			
 		// URL of the RSS feed
-			private var URL:String; 
+			private var URL:String = "http://weather.yahooapis.com/forecastrss" + "?w=" + locationNumber + "&u=" + "f"; 
 			
 		// Text Fields
 			private var maxt : TextField = new TextField();
@@ -53,7 +53,6 @@ package Screens
 				
 				createButtons();
 				createTitle();
-				requestRSS();
 				loadXML(URL);
 				placeText();
 			}			
@@ -135,20 +134,18 @@ package Screens
 				new FluidObject(maxt,Param);
 				
 			}
-
-			public function requestRSS():void
-			{
-				URL = "http://weather.yahooapis.com/forecastrss" + "?w=" + locationNumber + "&u=" + "f";
-			}
 			
 		//	load an XML document
 			private function loadXML(xmlURL:String):void 
 			{  
+				
 				var loader:URLLoader = new URLLoader();  
 				var request:URLRequest = new URLRequest(xmlURL);  
 					
 				loader.load(request);  
 				loader.addEventListener(Event.COMPLETE, readData);  
+				
+				
 			}  
 			
 		//	read data from XML
@@ -162,7 +159,7 @@ package Screens
 				var codeTomorrow:String = Data.channel.item.yweather::forecast[1].@code; 
 				
 				//Assigning the information to the text fields  
-					city.text = Data.channel.item.yweather::location.@city; 
+					city.text = Data.channel.yweather::location.@city; 
 					maxt.text ="High: " +Data.channel.item.yweather::forecast[1].@high + " °F";  
 					mint.text = "Low: "+Data.channel.item.yweather::forecast[1].@low + " °F";  
 					max.text = "High: " +Data.channel.item.yweather::forecast[0].@high + " °F";  
@@ -172,6 +169,8 @@ package Screens
  
 				// find out what day tomorrow is
  					tomorrow.text = getTomorrow(day);
+					
+					trace(Data.channel.yweather::location.@city);
 			
 			}
 			
