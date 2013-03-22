@@ -171,18 +171,21 @@ package Screens
 				Param = {x:0,y:0,offsetX:tomorrow.x, offsetY:temp.y};
 				new FluidObject(maxt,Param);
 				
-				Param = {x:0,y:0,offsetX:today.x - weatherIcon.width, offsetY:today.y-weatherIcon.height};
+				Param = {x:0,y:0,offsetX:ScreenWidth/2 - weatherIcon.width/2, offsetY:homeBTN.height+weatherIcon.height};
 				new FluidObject(weatherIcon,Param);
+				
+				weatherIcon.width *= 1.5;
+				weatherIcon.height *= 1.5;
 				
 				Param = {x:0,y:0,offsetX:ScreenWidth/2-rideNote.width/2, offsetY:ScreenHeight*.90-rideNote.height};
 				new FluidObject(rideNote,Param);
 				rideNote.width = ScreenWidth/2;
 				
 				square.graphics.beginFill(0x0178bd);
-				square.graphics.drawRect(0,0,ScreenWidth,300);
+				square.graphics.drawRect(0,0,ScreenWidth,ScreenHeight);
 				square.graphics.endFill();
 				square.x = ScreenWidth/2-square.width/2;
-				square.y = weatherIcon.y+weatherIcon.height/2;
+				square.y = homeBTN.height;
 				square.width = ScreenWidth;
 				
 				

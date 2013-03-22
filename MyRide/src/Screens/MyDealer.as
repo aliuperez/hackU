@@ -40,7 +40,7 @@ package Screens
 		
 		
 		
-		private var phoneBTN:PhoneBTN;
+		//private var phoneBTN:PhoneBTN;
 		
 		public function MyDealer()
 		{
@@ -100,11 +100,11 @@ package Screens
 			
 			Param = {x:0,y:0,offsetX:ScreenWidth-specialsBTN.width/2,offsetY:ScreenHeight-specialsBTN.height};
 			new FluidObject(specialsBTN,Param);
-			
+			/*
 			phoneBTN = new PhoneBTN();
 			this.addChild(phoneBTN);
 			Param = {x:0,y:0,offsetX:ScreenWidth-phoneBTN.width,offsetY:ScreenHeight/2};
-			new FluidObject(phoneBTN,Param);			
+			new FluidObject(phoneBTN,Param);	*/		
 		}
 		
 		public function gotoSite():void
