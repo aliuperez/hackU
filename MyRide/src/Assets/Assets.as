@@ -8,6 +8,18 @@ package Assets
 		[Embed(source="../Assets/Icons/calendar.png")]
 		public static const Calendar:Class;
 		
+		[Embed(source="../Assets/bikes/2012-yamaha-yzf-r6.png")]
+		public static const YamahaBike:Class;
+		
+		[Embed(source="../Assets/bikes/2013-Honda-ShadowRS.png")]
+		public static const HondaBike:Class;
+		
+		[Embed(source="../Assets/bikes/harley-Road-King-Classic.png")]
+		public static const HarleyBike:Class;
+		
+		[Embed(source="../Assets/bikes/ninja_bike.png")]
+		public static const NinjaBike:Class;
+		
 		[Embed(source="../Assets/parking_garage.jpg")]
 		public static const Garage:Class;
 		

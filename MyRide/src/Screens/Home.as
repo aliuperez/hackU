@@ -10,6 +10,7 @@ package Screens
 	
 	import Dependencies.FluidLayout.FluidObject;
 	
+	import Objects.Bike;
 	import Objects.GUI.EventsBTN;
 	import Objects.GUI.MyDealerBTN;
 	import Objects.GUI.ServiceBTN;
@@ -32,6 +33,10 @@ package Screens
 		public var myDealerBTN:MyDealerBTN;
 		public var serviceBTN:ServiceBTN;
 		public var Head:Bitmap;
+		public var BikesArray:Array = new Array();
+		
+		private var count:int = 0;
+		private var currentBike:int=0;
 		
 		private var ScreenNameToSwitchTo:Screen;
 		
@@ -48,6 +53,57 @@ package Screens
 			this.removeEventListener(Event.ADDED_TO_STAGE,init);
 			
 			createButtons();
+			createBikes();
+			
+			this.addEventListener(Event.ENTER_FRAME,slideshow);
+		}
+		
+		protected function slideshow(event:Event):void
+		{
+			
+			if(count%45==0)
+			{
+				if(currentBike>3)
+				{
+					currentBike=0;
+				}
+				
+				for(var i:int=0;i<BikesArray.length;i++)
+				{
+					BikesArray[i].visible = false;	
+				}
+				
+				BikesArray[currentBike].visible = true;
+				trace(BikesArray[currentBike] + "visible");
+				currentBike++
+			}
+			
+			count++
+		}
+		
+		private function createBikes():void
+		{
+			var bike1:Bike = new Bike("Yamaha");
+			BikesArray.push(bike1);
+			
+			var bike2:Bike = new Bike("Honda");
+			BikesArray.push(bike2);
+			
+			var bike3:Bike = new Bike("Ninja");
+			BikesArray.push(bike3);
+			
+			var bike4:Bike = new Bike("Harley");
+			BikesArray.push(bike4);
+			
+			for(var i:int=0;i<BikesArray.length;i++)
+			{
+				this.addChild(BikesArray[i]);
+				BikesArray[i].visible = false;
+				
+				var Param:Object;
+				Param = {x:0,y:0,offsetX:Head.width-BikesArray[i].width,offsetY:BikesArray[i].height*0.6};
+				new FluidObject(BikesArray[i],Param);
+			}
 		}
 		
 		public function transitionInAnimation():void
