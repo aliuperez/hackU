@@ -38,7 +38,7 @@ package Objects.GUI
 		{
 			var MyDealerBTNSprite:Shape = new Shape();
 			MyDealerBTNSprite.graphics.beginFill(0x881D9D);
-			MyDealerBTNSprite.graphics.drawRect(0,0,64,64);
+			MyDealerBTNSprite.graphics.drawRect(0,0,Locator.DeviceWidth*0.65,Locator.DeviceWidth*0.65*0.24);
 			MyDealerBTNSprite.x = Math.ceil(-MyDealerBTNSprite.width/2);
 			MyDealerBTNSprite.y = Math.ceil(-MyDealerBTNSprite.height/2);
 			MyDealerBTNSprite.graphics.endFill();

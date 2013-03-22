@@ -38,7 +38,7 @@ package Objects.GUI
 		{
 			var WeatherBTNSprite:Shape = new Shape();
 			WeatherBTNSprite.graphics.beginFill(0x881D9D);
-			WeatherBTNSprite.graphics.drawRect(0,0,64,64);
+			WeatherBTNSprite.graphics.drawRect(0,0,Locator.DeviceWidth*0.55,Locator.DeviceWidth*0.55*0.45);//2nd number is the aspect ratio
 			WeatherBTNSprite.x = Math.ceil(-WeatherBTNSprite.width/2);
 			WeatherBTNSprite.y = Math.ceil(-WeatherBTNSprite.height/2);
 			WeatherBTNSprite.graphics.endFill();

@@ -47,8 +47,8 @@ package Objects.GUI
 			var icon:Bitmap = new Assets.Assets.HomeIcon();
 			icon.width = HomeBTNSprite.width;
 			icon.height = HomeBTNSprite.height;
-			icon.x = Math.ceil(-icon.width/2);
-			icon.y = Math.ceil(-icon.height/2);
+			icon.x = HomeBTNSprite.x-HomeBTNSprite.width/2+icon.width/2;
+			icon.y = HomeBTNSprite.y-HomeBTNSprite.height/2+icon.height/2;
 			this.addChild(icon);
 		}
 	}

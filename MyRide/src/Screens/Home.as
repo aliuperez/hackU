@@ -33,31 +33,28 @@ package Screens
 		private function createButtons():void
 		{
 			var Param:Object;
-			
-			var homeBTN:HomeBTN = new HomeBTN();
-			this.addChild(homeBTN);
-			Param = {x:0,y:0,offsetX:Locator.DeviceWidth/2,offsetY:Locator.DeviceHeight/2};
-			new FluidObject(homeBTN,Param);
-			
+						
 			var weatherBTN:WeatherBTN = new WeatherBTN();
 			this.addChild(weatherBTN);
-			Param = {x:0,y:0,offsetX:homeBTN.x + weatherBTN.width*1.5,offsetY:homeBTN.y};
+			Param = {x:0,y:0,offsetX:weatherBTN.width/2,offsetY:ScreenHeight*0.45};
 			new FluidObject(weatherBTN,Param);	
+			
+			var tripsBTN:TripsBTN = new TripsBTN();
+			this.addChild(tripsBTN);
+			Param = {x:0,y:0,offsetX:weatherBTN.x + weatherBTN.width/2+tripsBTN.width/2,offsetY:weatherBTN.y-weatherBTN.height/2+tripsBTN.height/2};
+			new FluidObject(tripsBTN,Param);	
 			
 			var eventsBTN:EventsBTN = new EventsBTN();
 			this.addChild(eventsBTN);
-			Param = {x:0,y:0,offsetX:weatherBTN.x + eventsBTN.width*1.5,offsetY:weatherBTN.y};
+			Param = {x:0,y:0,offsetX:eventsBTN.width/2,offsetY:weatherBTN.y+weatherBTN.height/2+eventsBTN.height/2};
 			new FluidObject(eventsBTN,Param);
 			
 			var myDealerBTN:MyDealerBTN = new MyDealerBTN();
 			this.addChild(myDealerBTN);
-			Param = {x:0,y:0,offsetX:Locator.DeviceWidth/2,offsetY:Locator.DeviceHeight/2+myDealerBTN.height*1.5};
+			Param = {x:0,y:0,offsetX:eventsBTN.x+eventsBTN.width/2+myDealerBTN.width/2,offsetY:eventsBTN.y-eventsBTN.height/2+myDealerBTN.height/2};
 			new FluidObject(myDealerBTN,Param);	
 			
-			var tripsBTN:TripsBTN = new TripsBTN();
-			this.addChild(tripsBTN);
-			Param = {x:0,y:0,offsetX:myDealerBTN.x + tripsBTN.width*1.5,offsetY:myDealerBTN.y};
-			new FluidObject(tripsBTN,Param);	
+
 			
 			var serviceBTN:ServiceBTN = new ServiceBTN();
 			this.addChild(serviceBTN);

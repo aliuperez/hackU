@@ -38,7 +38,7 @@ package Objects.GUI
 		{
 			var TripsBTNSprite:Shape = new Shape();
 			TripsBTNSprite.graphics.beginFill(0x881D9D);
-			TripsBTNSprite.graphics.drawRect(0,0,64,64);
+			TripsBTNSprite.graphics.drawRect(0,0,Locator.DeviceWidth*0.45,Locator.DeviceWidth*0.45*0.55);//2nd number is the aspect ratio
 			TripsBTNSprite.x = Math.ceil(-TripsBTNSprite.width/2);
 			TripsBTNSprite.y = Math.ceil(-TripsBTNSprite.height/2);
 			TripsBTNSprite.graphics.endFill();
