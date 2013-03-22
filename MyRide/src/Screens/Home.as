@@ -2,8 +2,11 @@ package Screens
 {
 	import com.greensock.TweenLite;
 	
+	import flash.display.Bitmap;
 	import flash.events.Event;
 	import flash.geom.Point;
+	
+	import Assets.Assets;
 	
 	import Dependencies.FluidLayout.FluidObject;
 	
@@ -28,6 +31,8 @@ package Screens
 		public var eventsBTN:EventsBTN;
 		public var myDealerBTN:MyDealerBTN;
 		public var serviceBTN:ServiceBTN;
+		public var Head:Bitmap;
+		
 		private var ScreenNameToSwitchTo:Screen;
 		
 		public function Home()
@@ -46,7 +51,7 @@ package Screens
 		}
 		
 		public function transitionInAnimation():void
-		{
+		{		
 			TweenLite.from(weatherBTN, 1, {x:-weatherBTN.width, alpha:0});
 			TweenLite.from(tripsBTN, 1, {x:Locator.DeviceWidth+tripsBTN.width, alpha:0});
 			TweenLite.from(eventsBTN, 1, {y:Locator.DeviceHeight+eventsBTN.height, alpha:0});
@@ -71,12 +76,19 @@ package Screens
 		private function createButtons():void
 		{
 			var Param:Object;
-						
+			
 			weatherBTN = new WeatherBTN();
 			this.addChild(weatherBTN);
 			Param = {x:0,y:0,offsetX:weatherBTN.width/2,offsetY:ScreenHeight*0.45};
-			new FluidObject(weatherBTN,Param);	
+			new FluidObject(weatherBTN,Param);
 			
+			Head = new Assets.Assets.Garage();
+			Head.width = Locator.DeviceWidth;
+			Head.height = Locator.DeviceHeight*0.52-weatherBTN.height;
+			this.addChild(Head);
+			Param = {x:0,y:0,offsetX:0,offsetY:0};
+			new FluidObject(Head,Param);
+						
 			tripsBTN = new TripsBTN();
 			this.addChild(tripsBTN);
 			Param = {x:0,y:0,offsetX:weatherBTN.x + weatherBTN.width/2+tripsBTN.width/2,offsetY:weatherBTN.y-weatherBTN.height/2+tripsBTN.height/2};

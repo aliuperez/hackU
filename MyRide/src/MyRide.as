@@ -1,25 +1,37 @@
 package
 {
+	import com.greensock.TweenLite;
+	
+	import flash.display.Bitmap;
 	import flash.display.Sprite;
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
 	import flash.events.Event;
+	import flash.geom.Point;
+	import flash.geom.Rectangle;
 	
+	import Assets.Assets;
+	
+	import Dependencies.FluidLayout.FluidObject;
+	
+	import Screens.Events;
 	import Screens.Home;
+	import Screens.MoreInfo;
+	import Screens.MyDealer;
+	import Screens.Service;
+	import Screens.Specials;
+	import Screens.Trips;
 	import Screens.Weather;
 	
 	import ViewModel.ViewModelLocator;
-	import Screens.Events;
-	import Screens.MyDealer;
-	import Screens.Service;
-	import Screens.Trips;
-	import flash.geom.Rectangle;
-	import Screens.Specials;
 	
 	[SWF(backgroundColor="0x4C4C4C")]
 	
 	public class MyRide extends Sprite
 	{
+		public var GarageDoorPoint:Point = new Point();
+		public var GarageDoor:Bitmap;
+		
 		private var Locator:ViewModelLocator=ViewModelLocator.getInstance();
 		public function MyRide()
 		{
@@ -38,13 +50,45 @@ package
 			
 			setDeviceSize();
 			
-			createScreens();			
+			createScreens();
+			
+			createDoor();
 			
 			Locator.home.SwitchToScreen();
 		}
 		
+		private function createDoor():void
+		{
+			var Param:Object;
+			
+			GarageDoor = new Assets.Assets.GarageDoor();
+			GarageDoor.width = Locator.DeviceWidth;
+			GarageDoor.height = Locator.DeviceHeight*0.55-Locator.home.weatherBTN.height;
+			this.addChild(GarageDoor);
+			Param = {x:0,y:0,offsetX:0,offsetY:0};
+			new FluidObject(GarageDoor,Param);
+			
+			GarageDoorPoint = new Point (GarageDoor.x,GarageDoor.y);
+		}
+		
+		public function transitionInAnimation():void
+		{
+			TweenLite.to(GarageDoor, 3, {y:-GarageDoor.height});
+		}
+		
+		public function transitionOutAnimation():void
+		{		
+			TweenLite.to(GarageDoor, 1, {y:0, alpha:1,onComplete:onFinishTween});
+			function onFinishTween():void
+			{
+				Locator.home.TweenComplete = true;
+			}
+		}
+		
 		private function createScreens():void
 		{
+			Locator.myRide = this;
+			
 			Locator.home = new Home();
 			Locator.home.ScreenHeight=Locator.DeviceHeight;
 			Locator.home.ScreenWidth=Locator.DeviceWidth;
@@ -73,6 +117,11 @@ package
 			Locator.specials.ScreenHeight=Locator.DeviceHeight;
 			Locator.specials.ScreenWidth=Locator.DeviceWidth;	
 			
+			Locator.moreInfo = new MoreInfo();
+			Locator.moreInfo.ScreenHeight=Locator.DeviceHeight;
+			Locator.moreInfo.ScreenWidth=Locator.DeviceWidth;
+			Locator.moreInfo.visible = false;
+			
 			this.addChild(Locator.home);
 			this.addChild(Locator.weather);
 			this.addChild(Locator.events);
@@ -80,6 +129,7 @@ package
 			this.addChild(Locator.trips);
 			this.addChild(Locator.service);
 			this.addChild(Locator.specials);
+			Locator.events.addChild(Locator.moreInfo);
 		}
 		
 		private function setDeviceSize():void

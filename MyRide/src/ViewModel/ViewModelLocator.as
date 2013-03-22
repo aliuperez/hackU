@@ -2,6 +2,7 @@ package ViewModel {
 
 	import Screens.Events;
 	import Screens.Home;
+	import Screens.MoreInfo;
 	import Screens.MyDealer;
 	import Screens.Service;
 	import Screens.Specials;
@@ -33,6 +34,7 @@ package ViewModel {
 		public var DeviceWidth:int;
 		
 		// Screens
+		public var myRide:MyRide;
 		public var weather:Weather;
 		public var home:Home;
 		public var events:Events;
@@ -40,10 +42,14 @@ package ViewModel {
 		public var trips:Trips;
 		public var service:Service;
 		public var specials:Specials;
+		public var moreInfo:MoreInfo;
 		
 		//Specialized functions for the the model locator.
 		public function resetBTNPosition():void
 		{
+			myRide.GarageDoor.x = myRide.GarageDoorPoint.x;
+			myRide.GarageDoor.y = myRide.GarageDoorPoint.y;
+			
 			home.weatherBTN.x = home.weatherBTNPoint.x;
 			home.weatherBTN.y = home.weatherBTNPoint.y;
 			

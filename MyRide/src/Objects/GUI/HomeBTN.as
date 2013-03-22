@@ -31,11 +31,24 @@ package Objects.GUI
 		
 		protected function click(event:MouseEvent):void
 		{
-			Locator.home.SwitchToScreen();
+			Locator.myRide.transitionOutAnimation();
+			
+			this.addEventListener(Event.ENTER_FRAME,update);
+		}
+		
+		private function update(event:Event):void
+		{
+			if (Locator.home.TweenComplete == true)
+			{			
+				Locator.home.TweenComplete = false;
+				Locator.home.SwitchToScreen();
+				Locator.resetBTNPosition();
+				this.removeEventListener(Event.ENTER_FRAME,update);
+			}
 		}
 		
 		private function Draw():void
-		{
+		{			
 			var HomeBTNSprite:Shape = new Shape();
 			HomeBTNSprite.graphics.beginFill(0x4C4C4C);
 			HomeBTNSprite.graphics.drawRect(0,0,Locator.DeviceHeight*0.10,Locator.DeviceHeight*0.1);
