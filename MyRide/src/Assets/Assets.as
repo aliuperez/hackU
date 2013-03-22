@@ -46,6 +46,12 @@ package Assets
 		[Embed(source="../Assets/Icons/cloud_icon.png")]
 		public static const cloudIcon:Class;
 		
+	// weather
+		[Embed(source="../Assets/Icons/phone_icon.png")]
+		public static const phoneIcon:Class;
+		
+		
+		
 		
 	}
 }

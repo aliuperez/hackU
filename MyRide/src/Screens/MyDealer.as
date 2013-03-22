@@ -3,6 +3,7 @@
 
 package Screens
 {
+	import flash.display.Bitmap;
 	import flash.events.Event;
 	import flash.net.URLRequest;
 	import flash.net.navigateToURL;
@@ -34,6 +35,10 @@ package Screens
 		private var dealerText : TextField = new TextField();
 		private var phoneText : TextField = new TextField();
 		private var addressText : TextField = new TextField();
+		
+		
+		
+		private var phoneButton:Bitmap = new Assets.Assets.phoneIcon(); 
 		
 		public function MyDealer()
 		{
