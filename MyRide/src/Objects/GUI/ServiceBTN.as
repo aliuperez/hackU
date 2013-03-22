@@ -48,7 +48,7 @@ package Objects.GUI
 			var icon:Bitmap = new Assets.Assets.ServiceIcon();
 			icon.width = Math.min(ServiceBTNSprite.width,ServiceBTNSprite.height);
 			icon.height = icon.width;
-			icon.x = Math.ceil(icon.width/2);
+			icon.x = Math.ceil(-icon.width/2);
 			icon.y = Math.ceil(-icon.height/2);
 			this.addChild(icon);
 		}
