@@ -16,14 +16,18 @@ package Objects.GUI
 	{
 		private var _LineThickness:int;
 		private var _LabelText:String;
+		private var _LabelWidth:int;
+		private var _LabelHeight:int;
 		
 		private var Locator:ViewModelLocator=ViewModelLocator.getInstance();
 		
-		public function Label(LabelText:String,LabelThickness:int)
+		public function Label(LabelText:String,LabelThickness:int,LabelWidth:int, LabelHeight:int)
 		{
 			super();
 			this._LabelText = LabelText;
 			this._LineThickness = LabelThickness;
+			this._LabelWidth = LabelWidth;
+			this._LabelHeight = LabelHeight;
 			
 			this.addEventListener(Event.ADDED_TO_STAGE, init);
 		}
@@ -44,9 +48,11 @@ package Objects.GUI
 		
 		private function Draw():void
 		{
+			
 			var Label:Shape = new Shape();
-			Label.graphics.beginFill(0x881D9D);
-			Label.graphics.drawRect(0,0,64,64);
+			Label.graphics.lineStyle(_LineThickness);
+			Label.graphics.beginFill(0x131DA6);
+			Label.graphics.drawRect(0,0,_LabelWidth,_LabelHeight);
 			Label.x = Math.ceil(-Label.width/2);
 			Label.y = Math.ceil(-Label.height/2);
 			Label.graphics.endFill();
@@ -54,10 +60,11 @@ package Objects.GUI
 			this.addChild(Label);
 			
 			var text:TextField = new TextField();
-			Label.graphics.lineStyle(_LineThickness);
-			text.x = Label.x + Math.ceil(-text.width/2);
-			text.y = Label.y + Math.ceil(-text.height/2);
+			Label.graphics.beginFill(0x000000);
+			text.x = Label.x + Label.width/2;
+			text.y = Label.y + Label.height/2;
 			text.text = _LabelText;
+			Label.graphics.endFill();
 			this.addChild(text);
 		}
 		
@@ -80,5 +87,27 @@ package Objects.GUI
 		{
 			_LabelText = value;
 		}
+
+		public function get LabelWidth():int
+		{
+			return _LabelWidth;
+		}
+
+		public function set LabelWidth(value:int):void
+		{
+			_LabelWidth = value;
+		}
+
+		public function get LabelHeight():int
+		{
+			return _LabelHeight;
+		}
+
+		public function set LabelHeight(value:int):void
+		{
+			_LabelHeight = value;
+		}
+
+
 	}
 }
