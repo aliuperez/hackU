@@ -101,7 +101,7 @@ package Screens
 					HideScreen(Locator.events);
 					HideScreen(Locator.trips);
 					HideScreen(Locator.specials);
-					this.visible = true;	
+					Locator.service.visible = true;	
 					break;
 				
 				case "[class Specials]":
@@ -112,7 +112,7 @@ package Screens
 					HideScreen(Locator.myDealer);
 					HideScreen(Locator.events);
 					HideScreen(Locator.trips);
-					this.visible = true;	
+					Locator.specials.visible = true;	
 					break;
 			}
 		}

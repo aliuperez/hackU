@@ -33,12 +33,12 @@ package Objects.GUI
 			Draw();
 			
 			this.addEventListener(MouseEvent.CLICK,click);
-			this.addEventListener(Event.ENTER_FRAME,update);
 		}
 		
 		protected function click(event:MouseEvent):void
 		{			
 			Locator.home.transitionOutAnimation();
+			this.addEventListener(Event.ENTER_FRAME,update);
 		}
 		
 		private function update(event:Event):void
@@ -48,6 +48,7 @@ package Objects.GUI
 				Locator.home.TweenComplete =false;
 				Locator.myDealer.SwitchToScreen();
 				Locator.resetBTNPosition();
+				this.removeEventListener(Event.ENTER_FRAME,update);
 			}
 		}
 		
