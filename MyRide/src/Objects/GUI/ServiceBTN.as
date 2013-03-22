@@ -5,6 +5,8 @@ package Objects.GUI
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
+	import flash.text.TextField;
+	import flash.text.TextFormat;
 	
 	import Assets.Assets;
 	
@@ -46,11 +48,30 @@ package Objects.GUI
 			this.addChild(ServiceBTNSprite);
 			
 			var icon:Bitmap = new Assets.Assets.ServiceIcon();
-			icon.width = Math.min(ServiceBTNSprite.width,ServiceBTNSprite.height);
+			icon.width = Math.min(ServiceBTNSprite.width,ServiceBTNSprite.height)*0.75;
 			icon.height = icon.width;
-			icon.x = Math.ceil(-icon.width/2);
-			icon.y = Math.ceil(-icon.height/2);
+			icon.x = ServiceBTNSprite.width/2-icon.width;
+			icon.y = -icon.height/2;
 			this.addChild(icon);
+			
+			var myFormat : TextFormat = new TextFormat();
+			var textSize:int = icon.height/3;
+			myFormat.size = textSize;
+			
+			myFormat.align ="center";
+			//myFormat.leftMargin = MyDealerBTNSprite.width*0.3;
+			myFormat.color = 0xFFFFFF;
+			
+			var text:TextField = new TextField();
+			
+			text.border = false;
+			text.width=ServiceBTNSprite.width;
+			text.height=textSize*1.25;
+			text.text = "Service";
+			text.setTextFormat(myFormat);
+			text.x = -text.width/2;
+			text.y = ServiceBTNSprite.y+ServiceBTNSprite.height/2-text.height/2;
+			this.addChild(text);
 		}
 	}
 }

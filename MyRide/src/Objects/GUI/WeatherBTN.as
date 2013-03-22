@@ -5,6 +5,8 @@ package Objects.GUI
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
+	import flash.text.TextField;
+	import flash.text.TextFormat;
 	
 	import Assets.Assets;
 	
@@ -45,11 +47,29 @@ package Objects.GUI
 			this.addChild(WeatherBTNSprite);
 			
 			var icon:Bitmap = new Assets.Assets.WeatherIcon();
-			icon.width = Math.min(WeatherBTNSprite.width,WeatherBTNSprite.height);
+			icon.width = Math.min(WeatherBTNSprite.width,WeatherBTNSprite.height)*0.75;
 			icon.height = icon.width;
-			icon.x = Math.ceil(-icon.width/2);
-			icon.y = Math.ceil(-icon.height/2);
+			icon.x = -WeatherBTNSprite.width/2;
+			icon.y = -icon.height/2;
 			this.addChild(icon);
+			
+			var myFormat : TextFormat = new TextFormat();
+			var textSize:int = icon.height/2;
+			myFormat.size = textSize;
+			
+			myFormat.align ="center";
+			myFormat.color = 0xFFFFFF;
+			
+			var text:TextField = new TextField();
+			
+			text.border = false;
+			text.width=WeatherBTNSprite.width;
+			text.height=textSize*1.25;
+			text.text = "Weather";
+			text.setTextFormat(myFormat);
+			text.x = -text.width/2;
+			text.y = WeatherBTNSprite.y+WeatherBTNSprite.height/2-text.height/2;
+			this.addChild(text);
 		}
 	}
 }

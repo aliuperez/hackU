@@ -5,6 +5,8 @@ package Objects.GUI
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
+	import flash.text.TextField;
+	import flash.text.TextFormat;
 	
 	import Assets.Assets;
 	
@@ -45,12 +47,32 @@ package Objects.GUI
 			
 			this.addChild(EventsBTNSprite);
 			
+			
 			var icon:Bitmap = new Assets.Assets.EventsIcon();
-			icon.width = Math.min(EventsBTNSprite.width,EventsBTNSprite.height);
+			icon.width = Math.min(EventsBTNSprite.width,EventsBTNSprite.height)*0.75;
 			icon.height = icon.width;
-			icon.x = Math.ceil(-icon.width/2);
-			icon.y = Math.ceil(-icon.height/2);
+			icon.x = -icon.width/2;
+			icon.y = -icon.height/1.5;
 			this.addChild(icon);
+			
+			var myFormat : TextFormat = new TextFormat();
+			var textSize:int = icon.height/4;
+			myFormat.size = textSize;
+			
+			myFormat.align ="center";
+			myFormat.color = 0xFFFFFF;
+			
+			var text:TextField = new TextField();
+			
+			text.border = false;
+			text.width=EventsBTNSprite.width;
+			text.height=textSize*1.25;
+			text.text = "Events";
+			text.setTextFormat(myFormat);
+			text.x = -text.width/2;
+			text.y = icon.y+icon.height;
+			this.addChild(text);
+
 		}
 	}
 }

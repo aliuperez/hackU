@@ -5,6 +5,8 @@ package Objects.GUI
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
+	import flash.text.TextField;
+	import flash.text.TextFormat;
 	
 	import Assets.Assets;
 	
@@ -44,13 +46,32 @@ package Objects.GUI
 			TripsBTNSprite.graphics.endFill();
 			
 			this.addChild(TripsBTNSprite);
-			
+					
 			var icon:Bitmap = new Assets.Assets.TripsIcon();
-			icon.width = Math.min(TripsBTNSprite.width,TripsBTNSprite.height);
+			icon.width = Math.min(TripsBTNSprite.width,TripsBTNSprite.height)*0.75;
 			icon.height = icon.width;
-			icon.x = Math.ceil(-icon.width/2);
-			icon.y = Math.ceil(-icon.height/2);
+			icon.x = TripsBTNSprite.width/2-icon.width;
+			icon.y = -icon.height/2;
 			this.addChild(icon);
+			
+			var myFormat : TextFormat = new TextFormat();
+			var textSize:int = icon.height/4;
+			myFormat.size = textSize;
+			
+			myFormat.align ="center";
+			myFormat.rightMargin = TripsBTNSprite.width*0.3;
+			myFormat.color = 0xFFFFFF;
+			
+			var text:TextField = new TextField();
+			
+			text.border = false;
+			text.width=TripsBTNSprite.width*0.75;
+			text.height=textSize*1.25;
+			text.text = "My Trips";
+			text.setTextFormat(myFormat);
+			text.x = -text.width/2;
+			text.y = TripsBTNSprite.y+TripsBTNSprite.height/2-text.height/2;
+			this.addChild(text);
 		}
 	}
 }
