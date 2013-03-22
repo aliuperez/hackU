@@ -49,6 +49,8 @@ package Objects.GUI
 		protected function click(event:MouseEvent):void
 		{
 			Locator.home.transitionOutAnimation();
+			Locator.myRide.transitionOutAnimation();
+			
 			this.addEventListener(Event.ENTER_FRAME,update);
 		}
 		

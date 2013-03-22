@@ -36,7 +36,7 @@ package Screens
 			{
 				case "[class Home]":
 					trace("Home Screen Active!!");
-					
+					Locator.myRide.transitionInAnimation();
 					Locator.home.transitionInAnimation();
 					HideScreen(Locator.weather);
 					HideScreen(Locator.events);
@@ -51,6 +51,7 @@ package Screens
 				
 				case "[class Weather]":
 					trace("Weather Screen Active!!");
+					Locator.myRide.transitionInAnimation();
 					HideScreen(Locator.home);
 					HideScreen(Locator.events);
 					HideScreen(Locator.myDealer);
@@ -62,6 +63,7 @@ package Screens
 				
 				case "[class Events]":
 					trace("Events Screen Active!!");
+					Locator.myRide.transitionInAnimation();
 					HideScreen(Locator.home);
 					HideScreen(Locator.weather);
 					HideScreen(Locator.myDealer);
@@ -73,6 +75,7 @@ package Screens
 				
 				case "[class MyDealer]":
 					trace("MyDealer Screen Active!!");
+					Locator.myRide.transitionInAnimation();
 					HideScreen(Locator.home);
 					HideScreen(Locator.weather);
 					HideScreen(Locator.events);
@@ -84,6 +87,7 @@ package Screens
 				
 				case "[class Trips]":
 					trace("Trips Screen Active!!");
+					Locator.myRide.transitionInAnimation();
 					HideScreen(Locator.home);
 					HideScreen(Locator.weather);
 					HideScreen(Locator.myDealer);
@@ -95,6 +99,7 @@ package Screens
 				
 				case "[class Service]":
 					trace("Service Screen Active!!");
+					Locator.myRide.transitionInAnimation();
 					HideScreen(Locator.home);
 					HideScreen(Locator.weather);
 					HideScreen(Locator.myDealer);
