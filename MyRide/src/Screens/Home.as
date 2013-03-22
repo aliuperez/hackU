@@ -3,6 +3,7 @@ package Screens
 	import com.greensock.TweenLite;
 	
 	import flash.events.Event;
+	import flash.geom.Point;
 	
 	import Dependencies.FluidLayout.FluidObject;
 	
@@ -15,7 +16,13 @@ package Screens
 	import Screens.Screen;
 	
 	public class Home extends Screen
-	{		
+	{	
+		public var weatherBTNPoint:Point = new Point();
+		public var tripsBTNPoint:Point = new Point();
+		public var eventsBTNPoint:Point = new Point();
+		public var myDealerBTNPoint:Point = new Point();
+		public var serviceBTNPoint:Point = new Point();
+		
 		public var weatherBTN:WeatherBTN;
 		public var tripsBTN:TripsBTN;
 		public var eventsBTN:EventsBTN;
@@ -42,27 +49,20 @@ package Screens
 		{
 			TweenLite.from(weatherBTN, 1, {x:-weatherBTN.width, alpha:0});
 			TweenLite.from(tripsBTN, 1, {x:Locator.DeviceWidth+tripsBTN.width, alpha:0});
-			TweenLite.from(eventsBTN, 1, {y:Locator.DeviceHeight+eventsBTN.width, alpha:0});
+			TweenLite.from(eventsBTN, 1, {y:Locator.DeviceHeight+eventsBTN.height, alpha:0});
 			TweenLite.from(myDealerBTN, 1, {x:Locator.DeviceWidth+myDealerBTN.width, alpha:0});
-			TweenLite.from(serviceBTN, 1, {y:Locator.DeviceHeight+serviceBTN.width, alpha:0});
+			TweenLite.from(serviceBTN, 1, {y:Locator.DeviceHeight+serviceBTN.height, alpha:0});
 		}
 		
 		public function transitionOutAnimation():void
 		{		
-			TweenLite.to(weatherBTN, 1, {x:-weatherBTN.width, alpha:0});
-			TweenLite.to(tripsBTN, 1, {x:Locator.DeviceWidth+tripsBTN.width, alpha:0});
-			TweenLite.to(eventsBTN, 1, {y:Locator.DeviceHeight+eventsBTN.width, alpha:0});
-			TweenLite.to(myDealerBTN, 1, {x:Locator.DeviceWidth+myDealerBTN.width, alpha:0});
-			TweenLite.to(serviceBTN, 1, {y:Locator.DeviceHeight+serviceBTN.width, alpha:0});
-		}
-		
-		protected function timer(event:Event):void
-		{
-			if(weatherBTN.x != -weatherBTN.width)
-			{
-				TweenComplete = false;				
-			}
-			else
+			TweenLite.to(weatherBTN, 1, {x:-weatherBTN.width});
+			TweenLite.to(tripsBTN, 1, {x:Locator.DeviceWidth+tripsBTN.width});
+			TweenLite.to(eventsBTN, 1, {y:Locator.DeviceHeight+eventsBTN.height});
+			TweenLite.to(myDealerBTN, 1, {x:Locator.DeviceWidth+myDealerBTN.width});
+			
+			TweenLite.to(serviceBTN, 1, {y:Locator.DeviceHeight+serviceBTN.height,onComplete:onFinishTween});
+			function onFinishTween():void
 			{
 				TweenComplete = true;
 			}
@@ -97,6 +97,11 @@ package Screens
 			Param = {x:0,y:0,offsetX:eventsBTN.x+eventsBTN.width/2+serviceBTN.width/2,offsetY:myDealerBTN.y+myDealerBTN.height/2+serviceBTN.height/2};
 			new FluidObject(serviceBTN,Param);	
 			
+			weatherBTNPoint = new Point(weatherBTN.x,weatherBTN.y);
+			tripsBTNPoint = new Point(tripsBTN.x,tripsBTN.y);
+			eventsBTNPoint = new Point(eventsBTN.x,eventsBTN.y);
+			myDealerBTNPoint = new Point(myDealerBTN.x,myDealerBTN.y);
+			serviceBTNPoint = new Point(serviceBTN.x,serviceBTN.y);
 		}
 	}
 }

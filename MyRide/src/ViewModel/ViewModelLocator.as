@@ -42,7 +42,23 @@ package ViewModel {
 		public var specials:Specials;
 		
 		//Specialized functions for the the model locator.
-		
+		public function resetBTNPosition():void
+		{
+			home.weatherBTN.x = home.weatherBTNPoint.x;
+			home.weatherBTN.y = home.weatherBTNPoint.y;
+			
+			home.eventsBTN.x = home.eventsBTNPoint.x;
+			home.eventsBTN.y = home.eventsBTNPoint.y;
+			
+			home.tripsBTN.x = home.tripsBTNPoint.x;
+			home.tripsBTN.y = home.tripsBTNPoint.y;
+			
+			home.myDealerBTN.x = home.myDealerBTNPoint.x;
+			home.myDealerBTN.y = home.myDealerBTNPoint.y;
+			
+			home.serviceBTN.x = home.serviceBTNPoint.x;
+			home.serviceBTN.y = home.serviceBTNPoint.y;
+		}
 	}
 }
 class SingletonEnforcer{};

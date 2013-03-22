@@ -33,11 +33,22 @@ package Objects.GUI
 			Draw();
 			
 			this.addEventListener(MouseEvent.CLICK,click);
+			this.addEventListener(Event.ENTER_FRAME,update);
+		}
+		
+		private function update(event:Event):void
+		{
+			if (Locator.home.TweenComplete == true)
+			{			
+				Locator.home.TweenComplete =false;
+				Locator.weather.SwitchToScreen();
+				Locator.resetBTNPosition();
+			}
 		}
 		
 		protected function click(event:MouseEvent):void
 		{
-			Locator.weather.SwitchToScreen();
+			Locator.home.transitionOutAnimation();
 		}
 		
 		private function Draw():void
