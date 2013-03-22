@@ -25,8 +25,40 @@ package Screens
 		//hardcoded demo information
 		private var eventTitleArray : Array = new Array("Women's Garage Party","21st Annual Spring Bike Show","Poker Run","Motorcycle Bootcamp","Turner's Honda Dinner Ride");
 		private var eventDistanceArray : Array = new Array("5.4","8.8","11.9","13.5","35.2");
-		private var eventHostArray : Array = new Array("1","2","3","4","5");
-		private var eventHostWebsiteArray : Array = new Array("1","2","3","4","5");
+		private var eventHostArray : Array = new Array("Southside Harley-Davidson\n" +
+													   "385 N. Witchduck Road\n" +
+													   "Virginia Beach, VA 23462",
+													   "Adventure BMW\n" +
+													   "669 Woodlake Drive\n" +
+													   "Chesapeake, VA 23320",
+													   "Sunrise Cycles\n" +
+													   "1559 E. Little Creek Road\n" +
+													   "Norfolk, VA 23513",
+													   "Bayside Harley-Davidson\n" +
+													   "2211 Frederick Boulevard\n" +
+												       "Portsmouth, VA 23704",
+													   "Turner's Honda\n" +
+													   "1111 W. Ehringhaus Street\n" +
+													   "Elizabeth City, NC 27909");
+		private var eventHostPhoneArray : Array = new Array("757-499-8964","757-523-7055","757-583-2223","757-397-5550","252-335-5489");
+		private var eventDescArray : Array = new Array("March 30th, 2013 - 11am-2pm\n" +
+													   "It’s time to kick-start a new chapter in your life!  It has never been easier for women to grab the handlebars and find freedom and adventure on two wheels.  We’ll show you how!  Join the female employees at Hal’s for a Women’s Only Garage Party on Saturday, March 30th.\n" +
+													   "Check-in at 10:30am.\n" +  
+													   "Party 11am-1pm.\n" +
+													   "Refreshments provided.\n" +
+													   "Space is limited for this free event!",
+													   "April 20th, 2013 - 10am-4pm\n" +
+													   "Become part of the tradition that has been going on for 20 plus years!  Judged by the International Bike Builders Association.\n" +
+													   "More info to come.",
+													   "May 25th, 2013 - 9am-TBD" +
+													   "GWRRA Chapter NC-E2 Poker Run benefiting RIDE FOR KIDS. Registration begins at 9:00am at Adventure BMW. Ride, Door Prizes, Food. The Precision Drill Team will perform at 1:00pm at Waterfront Park!" +
+													   "Come join the fun!",
+													   "April 13th, 2013 - 1pm-6pm\n" +
+													   "This is basic training for guys who are ready to learn to ride.  Bring a buddy, grab a cold one and get ready to kick start some good times!Motorcycle Boot Camp is basic training for anyone ready to ride.  We know there are a ton of questions about how to get started, and we want to make it easy.  We'll start with the basics and go headlights to tailpipes, getting you up to speed on everything from learning to ride to gear that fits your style.",
+													   "May 11th, 2013 - 8pm-10pm\n" +
+													   "Traveling to WHITLEY'S BARBEQUE in Murfreesboro, NC. Leave Turner's at 3:00pm.  Door Prizes and 50/50 raffle to benefit RIDE FOR KIDS.\n" +
+													   "Call for more information.")
+
 		private var EventTitles:Array = new Array();
 
 		//Construct
@@ -75,7 +107,7 @@ package Screens
 			{
 				var LabelWidth:int = Locator.DeviceWidth;
 				var LabelHeight:int = (Locator.DeviceHeight-homeBTN.height)/hardCodedEvents;
-				var event:EventTitle = new EventTitle(eventTitleArray[i],eventDistanceArray[i],eventHostArray[i],eventHostWebsiteArray[i],LabelWidth,LabelHeight);
+				var event:EventTitle = new EventTitle(eventTitleArray[i],eventDistanceArray[i],eventHostArray[i],eventHostPhoneArray[i],LabelWidth,LabelHeight);
 				
 				this.addChild(event);
 				EventTitles.push(event);
