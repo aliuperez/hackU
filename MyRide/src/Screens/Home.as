@@ -47,16 +47,13 @@ package Screens
 			TweenLite.from(serviceBTN, 1, {y:Locator.DeviceHeight+serviceBTN.width, alpha:0});
 		}
 		
-		public function transitionOutAnimation(ScreenName:Screen):void
-		{
-			this.addEventListener(Event.ENTER_FRAME,timer);			
+		public function transitionOutAnimation():void
+		{		
 			TweenLite.to(weatherBTN, 1, {x:-weatherBTN.width, alpha:0});
 			TweenLite.to(tripsBTN, 1, {x:Locator.DeviceWidth+tripsBTN.width, alpha:0});
 			TweenLite.to(eventsBTN, 1, {y:Locator.DeviceHeight+eventsBTN.width, alpha:0});
 			TweenLite.to(myDealerBTN, 1, {x:Locator.DeviceWidth+myDealerBTN.width, alpha:0});
 			TweenLite.to(serviceBTN, 1, {y:Locator.DeviceHeight+serviceBTN.width, alpha:0});
-			
-			ScreenName.SwitchToScreen();
 		}
 		
 		protected function timer(event:Event):void
