@@ -15,8 +15,8 @@ package Screens
 	{
 		public var myDealer:String = "Honda Dealer";
 		public var dealerNumber = "tel:17576174739";
-		private var dealerAddress = "";
-		
+		private var dealerAddress1 = "123 Whatever Dr.";
+		private var dealerAddress2 = "Chesapeake VA, 23320";
 		
 		
 		
@@ -31,7 +31,6 @@ package Screens
 		protected function init(event:Event):void
 		{
 			this.removeEventListener(Event.ADDED_TO_STAGE,init);
-			makeCall();
 			createButtons();
 		}
 		
@@ -55,7 +54,8 @@ package Screens
 		
 		private function getDirections():void
 		{
-			//google address	
+			//var targetURL:URLRequest = new URLRequest(dealerNumber);
+			//navigateToURL(targetURL);
 		}
 		
 		private function makeCall():void
