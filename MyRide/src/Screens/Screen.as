@@ -1,5 +1,6 @@
 package Screens
 {
+	import flash.display.Bitmap;
 	import flash.display.Sprite;
 	import flash.utils.getDefinitionByName;
 	import flash.utils.getQualifiedClassName;
@@ -14,7 +15,8 @@ package Screens
 		private var _ScreenWidth:int;
 		private var _ScreenHeight:int;
 		public var homeBTN:HomeBTN;
-		public var titleLBL:Label; 
+		public var titleLBL:Label;
+		public var icon:Bitmap;
 				
 		public var Locator:ViewModelLocator=ViewModelLocator.getInstance();
 		

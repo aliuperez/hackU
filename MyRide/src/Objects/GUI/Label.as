@@ -77,7 +77,7 @@ package Objects.GUI
 			
 			text.border = false;
 			text.width=Label.width;
-			text.height=textSize;
+			text.height=textSize+10;
 			text.text = _LabelText;
 			text.setTextFormat(myFormat);
 			this.addChild(text);

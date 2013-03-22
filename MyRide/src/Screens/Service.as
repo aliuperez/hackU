@@ -2,12 +2,17 @@ package Screens
 {
 	import flash.events.Event;
 	
+	import Assets.Assets;
+	
 	import Dependencies.FluidLayout.FluidObject;
 	
 	import Objects.GUI.HomeBTN;
+	import Objects.GUI.Label;
+	
 
 	public class Service extends Screen
 	{
+		
 		public function Service()
 		{
 			super();
@@ -19,15 +24,39 @@ package Screens
 			this.removeEventListener(Event.ADDED_TO_STAGE,init);
 			
 			createButtons();
+			createTitle();
+		}
+		
+		private function createTitle():void
+		{
+			var Param:Object;
+			
+			titleLBL = new Label("Service",0,Locator.DeviceWidth-homeBTN.width,homeBTN.height,0,true,0xea1c25,0xFFFFFF);
+			this.addChild(titleLBL);
+			
+			Param = {x:0, y:0, offsetX:Locator.DeviceWidth-titleLBL.width/2, offsetY:titleLBL.height/2};
+			new FluidObject(titleLBL, Param);	
+			
+			icon = new Assets.Assets.ServiceIcon();
+			icon.width = Math.min(titleLBL.width,titleLBL.height);
+			icon.height = icon.width;
+			icon.x = Math.ceil(-icon.width/2);
+			icon.y = Math.ceil(-icon.height/2);
+			this.addChild(icon);
+			
+			Param = {x:0, y:0, offsetX:titleLBL.x+titleLBL.width/2-icon.width, offsetY:titleLBL.y-icon.height/2};
+			new FluidObject(icon, Param);
 		}
 		
 		private function createButtons():void
 		{
-			var homeBTN:HomeBTN = new HomeBTN();
+			var Param:Object;
+			
+			homeBTN = new HomeBTN();
 			this.addChild(homeBTN);
 			
-			var homeBTNParam:Object = {x:0,y:0,offsetX:homeBTN.width/2,offsetY:homeBTN.height/2};
-			new FluidObject(homeBTN,homeBTNParam);
+			Param = {x:0,y:0,offsetX:homeBTN.width/2,offsetY:homeBTN.height/2};
+			new FluidObject(homeBTN,Param);
 			
 		}
 	}

@@ -9,13 +9,15 @@ package Screens
 	import flash.net.URLRequest;
 	import flash.text.TextField;
 	
+	import Assets.Assets;
+	
 	import Dependencies.FluidLayout.FluidObject;
 	
 	import Objects.EventTitle;
+	import Objects.GUI.HomeBTN;
 	import Objects.GUI.Label;
 	
 	import Screens.Screen;
-	import Objects.GUI.HomeBTN;
 	
 	public class Events extends Screen
 	{			
@@ -26,10 +28,7 @@ package Screens
 		private var eventHostArray : Array = new Array("1","2","3","4","5");
 		private var eventHostWebsiteArray : Array = new Array("1","2","3","4","5");
 		private var EventTitles:Array = new Array();
-		
-		private var homeBTN:HomeBTN;
-		private var titleLBL:Label;
-	
+
 		//Construct
 		public function Events()
 		{
@@ -52,11 +51,21 @@ package Screens
 		{
 			var Param:Object;
 			
-			titleLBL = new Label("Events",0,Locator.DeviceWidth-homeBTN.width,homeBTN.height,0,true,0x131DA6,0xFFFFFF);
+			titleLBL = new Label("Events",0,Locator.DeviceWidth-homeBTN.width,homeBTN.height,0,true,0x0f0f0f,0xFFFFFF);
 			this.addChild(titleLBL);
 			
 			Param = {x:0, y:0, offsetX:Locator.DeviceWidth-titleLBL.width/2, offsetY:titleLBL.height/2};
 			new FluidObject(titleLBL, Param);	
+			
+			icon = new Assets.Assets.EventsIcon();
+			icon.width = Math.min(titleLBL.width,titleLBL.height);
+			icon.height = icon.width;
+			icon.x = Math.ceil(-icon.width/2);
+			icon.y = Math.ceil(-icon.height/2);
+			this.addChild(icon);
+			
+			Param = {x:0, y:0, offsetX:titleLBL.x+titleLBL.width/2-icon.width, offsetY:titleLBL.y-icon.height/2};
+			new FluidObject(icon, Param);
 		}
 		
 		private function createEvents():void

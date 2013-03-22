@@ -1,10 +1,13 @@
 
 package Screens
 {
+	import flash.display.Bitmap;
 	import flash.events.Event;
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
 	import flash.text.TextField;
+	
+	import Assets.Assets;
 	
 	import Dependencies.FluidLayout.FluidObject;
 	
@@ -34,6 +37,7 @@ package Screens
 			private var min:TextField = new TextField();
 			private var tomorrow:TextField = new TextField();
 			private var today:TextField = new TextField();
+
 			
 		// Construct
 			public function Weather()
@@ -58,11 +62,21 @@ package Screens
 			{
 				var Param:Object;
 				
-				titleLBL = new Label("Weather",0,Locator.DeviceWidth-homeBTN.width,homeBTN.height,0,true,0x131DA6,0xFFFFFF);
+				titleLBL = new Label("Weather",0,Locator.DeviceWidth-homeBTN.width,homeBTN.height,0,true,0xea1c25,0xFFFFFF);
 				this.addChild(titleLBL);
 				
 				Param = {x:0, y:0, offsetX:Locator.DeviceWidth-titleLBL.width/2, offsetY:titleLBL.height/2};
-				new FluidObject(titleLBL, Param);	
+				new FluidObject(titleLBL, Param);
+				
+				icon = new Assets.Assets.WeatherIcon();
+				icon.width = Math.min(titleLBL.width,titleLBL.height);
+				icon.height = icon.width;
+				icon.x = Math.ceil(-icon.width/2);
+				icon.y = Math.ceil(-icon.height/2);
+				this.addChild(icon);
+				
+				Param = {x:0, y:0, offsetX:titleLBL.x+titleLBL.width/2-icon.width, offsetY:titleLBL.y-icon.height/2};
+				new FluidObject(icon, Param);
 			}
 			
 			private function createButtons():void

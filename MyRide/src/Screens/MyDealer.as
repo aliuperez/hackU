@@ -8,10 +8,13 @@ package Screens
 	import flash.net.navigateToURL;
 	import flash.text.TextField;
 	
+	import Assets.Assets;
+	
 	import Dependencies.FluidLayout.FluidObject;
 	
 	import Objects.GUI.EventsBTN;
 	import Objects.GUI.HomeBTN;
+	import Objects.GUI.Label;
 
 
 	public class MyDealer extends Screen
@@ -43,18 +46,42 @@ package Screens
 			
 			//gotoSite();
 			createButtons();
+			createTitle();
 			placeText();
+		}
+		
+		private function createTitle():void
+		{
+			var Param:Object;
+			
+			titleLBL = new Label("MyDealer",0,Locator.DeviceWidth-homeBTN.width,homeBTN.height,0,true,0x0178bd,0xFFFFFF);
+			this.addChild(titleLBL);
+			
+			Param = {x:0, y:0, offsetX:Locator.DeviceWidth-titleLBL.width/2, offsetY:titleLBL.height/2};
+			new FluidObject(titleLBL, Param);	
+			
+			icon = new Assets.Assets.MyDealerIcon();
+			icon.width = Math.min(titleLBL.width,titleLBL.height);
+			icon.height = icon.width;
+			icon.x = Math.ceil(-icon.width/2);
+			icon.y = Math.ceil(-icon.height/2);
+			this.addChild(icon);
+			
+			Param = {x:0, y:0, offsetX:titleLBL.x+titleLBL.width/2-icon.width, offsetY:titleLBL.y-icon.height/2};
+			new FluidObject(icon, Param);
 		}
 		
 		private function createButtons():void
 		{
-			var homeBTN:HomeBTN = new HomeBTN();
+			var Param:Object;
+			
+			homeBTN = new HomeBTN();
 			this.addChild(homeBTN);
 			
 			var eventsBTN:EventsBTN = new EventsBTN();
 			this.addChild(eventsBTN);
 			
-			var Param:Object = {x:0,y:0,offsetX:homeBTN.width/2,offsetY:homeBTN.height/2};
+			Param = {x:0,y:0,offsetX:homeBTN.width/2,offsetY:homeBTN.height/2};
 			new FluidObject(homeBTN,Param);
 			
 			Param = {x:0,y:0,offsetX:eventsBTN.width/2,offsetY:ScreenHeight-eventsBTN.height};
