@@ -45,6 +45,9 @@ package ViewModel {
 		//Specialized functions for the the model locator.
 		public function resetBTNPosition():void
 		{
+			home.logo.x = home.logoPoint.x;
+			home.logo.y = home.logoPoint.y;
+			
 			myRide.GarageDoor.x = myRide.GarageDoorPoint.x;
 			myRide.GarageDoor.y = myRide.GarageDoorPoint.y;
 			

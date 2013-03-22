@@ -12,6 +12,7 @@ package Screens
 	
 	import Objects.Bike;
 	import Objects.GUI.EventsBTN;
+	import Objects.GUI.Logo;
 	import Objects.GUI.MyDealerBTN;
 	import Objects.GUI.ServiceBTN;
 	import Objects.GUI.TripsBTN;
@@ -26,6 +27,9 @@ package Screens
 		public var eventsBTNPoint:Point = new Point();
 		public var myDealerBTNPoint:Point = new Point();
 		public var serviceBTNPoint:Point = new Point();
+		
+		public var logoPoint:Point = new Point();
+		public var logo:Logo;
 		
 		public var weatherBTN:WeatherBTN;
 		public var tripsBTN:TripsBTN;
@@ -108,6 +112,7 @@ package Screens
 		
 		public function transitionInAnimation():void
 		{		
+			TweenLite.from(logo, 1, {x:-logo.width, alpha:0});
 			TweenLite.from(weatherBTN, 1, {x:-weatherBTN.width, alpha:0});
 			TweenLite.from(tripsBTN, 1, {x:Locator.DeviceWidth+tripsBTN.width, alpha:0});
 			TweenLite.from(eventsBTN, 1, {y:Locator.DeviceHeight+eventsBTN.height, alpha:0});
@@ -116,7 +121,8 @@ package Screens
 		}
 		
 		public function transitionOutAnimation():void
-		{		
+		{	
+			TweenLite.to(logo, 1, {x:Locator.DeviceWidth+logo.width});
 			TweenLite.to(weatherBTN, 1, {x:-weatherBTN.width});
 			TweenLite.to(tripsBTN, 1, {x:Locator.DeviceWidth+tripsBTN.width});
 			TweenLite.to(eventsBTN, 1, {y:Locator.DeviceHeight+eventsBTN.height});
@@ -165,6 +171,13 @@ package Screens
 			Param = {x:0,y:0,offsetX:eventsBTN.x+eventsBTN.width/2+serviceBTN.width/2,offsetY:myDealerBTN.y+myDealerBTN.height/2+serviceBTN.height/2};
 			new FluidObject(serviceBTN,Param);	
 			
+			logo = new Logo();
+			this.addChild(logo);
+			
+			Param = {x:0, y:0, offsetX:Locator.DeviceWidth/2, offsetY:Locator.DeviceHeight*0.90};
+			new FluidObject(logo, Param);
+			
+			logoPoint = new Point(logo.x,logo.y);
 			weatherBTNPoint = new Point(weatherBTN.x,weatherBTN.y);
 			tripsBTNPoint = new Point(tripsBTN.x,tripsBTN.y);
 			eventsBTNPoint = new Point(eventsBTN.x,eventsBTN.y);
