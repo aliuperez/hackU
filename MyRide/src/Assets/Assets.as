@@ -58,9 +58,13 @@ package Assets
 		[Embed(source="../Assets/Icons/cloud_icon.png")]
 		public static const cloudIcon:Class;
 		
-	// weather
+	// dealer page
+		
 		[Embed(source="../Assets/Icons/phone_icon.png")]
 		public static const phoneIcon:Class;
+		
+		[Embed(source="../Assets/Icons/web_icon.png")]
+		public static const siteIcon:Class;
 		
 		
 		

@@ -16,6 +16,7 @@ package Screens
 	
 	import Screens.Screen;
 	import flash.text.TextFormat;
+	import flash.display.Sprite;
 
 	public class Weather extends Screen
 	{
@@ -95,9 +96,15 @@ package Screens
 
 			private function placeText():void
 			{
+				
+				var square:Sprite = new Sprite();
+				addChild(square);
+				//square.graphics.lineStyle(0,0x00ff00);
+			
 				var myFormat:TextFormat = new TextFormat();
 				myFormat.size = 20;
-				myFormat.font = "Helvetica";
+				myFormat.font = "Arial";
+				myFormat.color = 0xFFFFFF; 
 				
 				//add kids
 				addChild(maxt);
@@ -164,11 +171,20 @@ package Screens
 				Param = {x:0,y:0,offsetX:tomorrow.x, offsetY:temp.y};
 				new FluidObject(maxt,Param);
 				
-				Param = {x:0,y:0,offsetX:today.x, offsetY:today.y-weatherIcon.height};
+				Param = {x:0,y:0,offsetX:today.x - weatherIcon.width, offsetY:today.y-weatherIcon.height};
 				new FluidObject(weatherIcon,Param);
 				
 				Param = {x:0,y:0,offsetX:ScreenWidth/2-rideNote.width/2, offsetY:ScreenHeight*.90-rideNote.height};
 				new FluidObject(rideNote,Param);
+				rideNote.width = ScreenWidth/2;
+				
+				square.graphics.beginFill(0x0178bd);
+				square.graphics.drawRect(0,0,ScreenWidth,300);
+				square.graphics.endFill();
+				square.x = ScreenWidth/2-square.width/2;
+				square.y = weatherIcon.y+weatherIcon.height/2;
+				square.width = ScreenWidth;
+				
 				
 			}
 			
