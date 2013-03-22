@@ -35,7 +35,7 @@ package Objects.GUI
 		}
 		
 		private function Draw():void
-		{
+		{			
 			var HomeBTNSprite:Shape = new Shape();
 			HomeBTNSprite.graphics.beginFill(0x4C4C4C);
 			HomeBTNSprite.graphics.drawRect(0,0,Locator.DeviceHeight*0.10,Locator.DeviceHeight*0.1);
