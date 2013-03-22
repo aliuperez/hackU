@@ -37,7 +37,7 @@ package Objects.GUI
 		private function Draw():void
 		{
 			var EventsBTNSprite:Shape = new Shape();
-			EventsBTNSprite.graphics.beginFill(0x881D9D);
+			EventsBTNSprite.graphics.beginFill(0x0f0f0f);
 			EventsBTNSprite.graphics.drawRect(0,0,Locator.DeviceWidth*0.35,Locator.DeviceHeight*0.25);
 			EventsBTNSprite.x = Math.ceil(-EventsBTNSprite.width/2);
 			EventsBTNSprite.y = Math.ceil(-EventsBTNSprite.height/2);
@@ -46,8 +46,8 @@ package Objects.GUI
 			this.addChild(EventsBTNSprite);
 			
 			var icon:Bitmap = new Assets.Assets.EventsIcon();
-			icon.width = EventsBTNSprite.width;
-			icon.height = EventsBTNSprite.height;
+			icon.width = Math.min(EventsBTNSprite.width,EventsBTNSprite.height);
+			icon.height = icon.width;
 			icon.x = Math.ceil(-icon.width/2);
 			icon.y = Math.ceil(-icon.height/2);
 			this.addChild(icon);

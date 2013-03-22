@@ -37,7 +37,7 @@ package Objects.GUI
 		private function Draw():void
 		{
 			var ServiceBTNSprite:Shape = new Shape();
-			ServiceBTNSprite.graphics.beginFill(0x881D9D);
+			ServiceBTNSprite.graphics.beginFill(0xea1c25);
 			ServiceBTNSprite.graphics.drawRect(0,0,Locator.DeviceWidth*0.65,Locator.DeviceHeight*0.15);
 			ServiceBTNSprite.x = Math.ceil(-ServiceBTNSprite.width/2);
 			ServiceBTNSprite.y = Math.ceil(-ServiceBTNSprite.height/2);
@@ -46,9 +46,9 @@ package Objects.GUI
 			this.addChild(ServiceBTNSprite);
 			
 			var icon:Bitmap = new Assets.Assets.ServiceIcon();
-			icon.width = ServiceBTNSprite.width;
-			icon.height = ServiceBTNSprite.height;
-			icon.x = Math.ceil(-icon.width/2);
+			icon.width = Math.min(ServiceBTNSprite.width,ServiceBTNSprite.height);
+			icon.height = icon.width;
+			icon.x = Math.ceil(icon.width/2);
 			icon.y = Math.ceil(-icon.height/2);
 			this.addChild(icon);
 		}

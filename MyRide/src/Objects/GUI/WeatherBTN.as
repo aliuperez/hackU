@@ -37,17 +37,16 @@ package Objects.GUI
 		private function Draw():void
 		{
 			var WeatherBTNSprite:Shape = new Shape();
-			WeatherBTNSprite.graphics.beginFill(0x881D9D);
+			WeatherBTNSprite.graphics.beginFill(0xea1c25);
 			WeatherBTNSprite.graphics.drawRect(0,0,Locator.DeviceWidth*0.55,Locator.DeviceHeight*0.15);
 			WeatherBTNSprite.x = Math.ceil(-WeatherBTNSprite.width/2);
 			WeatherBTNSprite.y = Math.ceil(-WeatherBTNSprite.height/2);
 			WeatherBTNSprite.graphics.endFill();
-			
 			this.addChild(WeatherBTNSprite);
 			
 			var icon:Bitmap = new Assets.Assets.WeatherIcon();
-			icon.width = WeatherBTNSprite.width;
-			icon.height = WeatherBTNSprite.height;
+			icon.width = Math.min(WeatherBTNSprite.width,WeatherBTNSprite.height);
+			icon.height = icon.width;
 			icon.x = Math.ceil(-icon.width/2);
 			icon.y = Math.ceil(-icon.height/2);
 			this.addChild(icon);

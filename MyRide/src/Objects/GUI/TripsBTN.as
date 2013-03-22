@@ -37,7 +37,7 @@ package Objects.GUI
 		private function Draw():void
 		{
 			var TripsBTNSprite:Shape = new Shape();
-			TripsBTNSprite.graphics.beginFill(0x881D9D);
+			TripsBTNSprite.graphics.beginFill(0x0f0f0f);
 			TripsBTNSprite.graphics.drawRect(0,0,Locator.DeviceWidth*0.45,Locator.DeviceWidth*0.45*0.55);//2nd number is the aspect ratio
 			TripsBTNSprite.x = Math.ceil(-TripsBTNSprite.width/2);
 			TripsBTNSprite.y = Math.ceil(-TripsBTNSprite.height/2);
@@ -46,8 +46,8 @@ package Objects.GUI
 			this.addChild(TripsBTNSprite);
 			
 			var icon:Bitmap = new Assets.Assets.TripsIcon();
-			icon.width = TripsBTNSprite.width;
-			icon.height = TripsBTNSprite.height;
+			icon.width = Math.min(TripsBTNSprite.width,TripsBTNSprite.height);
+			icon.height = icon.width;
 			icon.x = Math.ceil(-icon.width/2);
 			icon.y = Math.ceil(-icon.height/2);
 			this.addChild(icon);

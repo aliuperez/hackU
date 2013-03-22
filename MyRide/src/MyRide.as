@@ -15,7 +15,7 @@ package
 	import Screens.Trips;
 	import flash.geom.Rectangle;
 	
-	//[SWF(frameRate="60",width="1280",height="720",backgroundColor="0x000000")]
+	[SWF(backgroundColor="0x4C4C4C")]
 	
 	public class MyRide extends Sprite
 	{

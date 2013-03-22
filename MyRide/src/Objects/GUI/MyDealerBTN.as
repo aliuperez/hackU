@@ -37,7 +37,7 @@ package Objects.GUI
 		private function Draw():void
 		{
 			var MyDealerBTNSprite:Shape = new Shape();
-			MyDealerBTNSprite.graphics.beginFill(0x881D9D);
+			MyDealerBTNSprite.graphics.beginFill(0x0178bd);
 			MyDealerBTNSprite.graphics.drawRect(0,0,Locator.DeviceWidth*0.65,Locator.DeviceHeight*0.10);
 			MyDealerBTNSprite.x = Math.ceil(-MyDealerBTNSprite.width/2);
 			MyDealerBTNSprite.y = Math.ceil(-MyDealerBTNSprite.height/2);
@@ -46,9 +46,9 @@ package Objects.GUI
 			this.addChild(MyDealerBTNSprite);
 			
 			var icon:Bitmap = new Assets.Assets.MyDealerIcon();
-			icon.width = MyDealerBTNSprite.width;
-			icon.height = MyDealerBTNSprite.height;
-			icon.x = Math.ceil(-icon.width/2);
+			icon.width = Math.min(MyDealerBTNSprite.width,MyDealerBTNSprite.height);
+			icon.height = icon.width;
+			icon.x = -MyDealerBTNSprite.width/2;
 			icon.y = Math.ceil(-icon.height/2);
 			this.addChild(icon);
 		}
