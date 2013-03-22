@@ -16,7 +16,6 @@ package
 	
 	import Screens.Events;
 	import Screens.Home;
-	import Screens.MoreInfo;
 	import Screens.MyDealer;
 	import Screens.Service;
 	import Screens.Specials;
@@ -116,12 +115,7 @@ package
 			Locator.specials = new Specials();
 			Locator.specials.ScreenHeight=Locator.DeviceHeight;
 			Locator.specials.ScreenWidth=Locator.DeviceWidth;	
-			
-			Locator.moreInfo = new MoreInfo();
-			Locator.moreInfo.ScreenHeight=Locator.DeviceHeight;
-			Locator.moreInfo.ScreenWidth=Locator.DeviceWidth;
-			Locator.moreInfo.visible = false;
-			
+						
 			this.addChild(Locator.home);
 			this.addChild(Locator.weather);
 			this.addChild(Locator.events);
@@ -129,7 +123,6 @@ package
 			this.addChild(Locator.trips);
 			this.addChild(Locator.service);
 			this.addChild(Locator.specials);
-			Locator.events.addChild(Locator.moreInfo);
 		}
 		
 		private function setDeviceSize():void

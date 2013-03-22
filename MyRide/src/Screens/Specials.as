@@ -75,7 +75,7 @@ package Screens
 			{
 				var LabelWidth:int = Locator.DeviceWidth;
 				var LabelHeight:int = (Locator.DeviceHeight-homeBTN.height)/hardCodedSpecials;
-				var event:EventTitle = new EventTitle(EventTitleArray[i],specialDistanceArray[i],specialHostArray[i],specialHostWebsiteArray[i],LabelWidth,LabelHeight);
+				var event:EventTitle = new EventTitle(EventTitleArray[i],specialDistanceArray[i],specialHostArray[i],specialHostWebsiteArray[i],"",LabelWidth,LabelHeight);
 				
 				this.addChild(event);
 				EventTitles.push(event);

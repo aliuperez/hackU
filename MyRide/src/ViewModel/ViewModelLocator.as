@@ -2,7 +2,6 @@ package ViewModel {
 
 	import Screens.Events;
 	import Screens.Home;
-	import Screens.MoreInfo;
 	import Screens.MyDealer;
 	import Screens.Service;
 	import Screens.Specials;
@@ -42,7 +41,6 @@ package ViewModel {
 		public var trips:Trips;
 		public var service:Service;
 		public var specials:Specials;
-		public var moreInfo:MoreInfo;
 		
 		//Specialized functions for the the model locator.
 		public function resetBTNPosition():void

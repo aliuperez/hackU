@@ -6,7 +6,7 @@ package Objects
 	import flash.events.MouseEvent;
 	
 	import Objects.GUI.Label;
-		
+	
 	import ViewModel.ViewModelLocator;
 	
 	public class EventTitle extends Sprite
@@ -17,17 +17,19 @@ package Objects
 		private var _HostWebsite:String;
 		private var _LabelWidth:int;
 		private var _LabelHeight:int;
+		private var _Description:String;
 		
 		
 		public var Locator:ViewModelLocator=ViewModelLocator.getInstance();
 		
-		public function EventTitle(Title:String,Distance:int,Host:String,HostWebsite:String,LabelWidth:int,LabelHeight:int)
+		public function EventTitle(Title:String,Distance:int,Host:String,HostWebsite:String,Description:String,LabelWidth:int,LabelHeight:int)
 		{
 			super();
 			this._Title = Title;
 			this._Distance = Distance;
 			this._Host = Host;
 			this._HostWebsite = HostWebsite;
+			this._Description = Description;
 			this._LabelWidth = LabelWidth;
 			this._LabelHeight = LabelHeight;
 			
@@ -38,18 +40,6 @@ package Objects
 		{
 			this.removeEventListener(Event.ADDED_TO_STAGE,init);
 			draw();
-			
-			this.addEventListener(MouseEvent.CLICK,click);
-		}
-		
-		protected function click(event:MouseEvent):void
-		{
-			populateMoreInfo();
-		}
-		
-		private function populateMoreInfo():void
-		{
-			Locator.moreInfo.visible = true;
 		}
 		
 		private function draw():void
@@ -124,6 +114,16 @@ package Objects
 		public function set LabelHeight(value:int):void
 		{
 			_LabelHeight = value;
+		}
+
+		public function get Description():String
+		{
+			return _Description;
+		}
+
+		public function set Description(value:String):void
+		{
+			_Description = value;
 		}
 
 

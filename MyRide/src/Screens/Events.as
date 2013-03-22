@@ -5,9 +5,6 @@
 package Screens
 {
 	import flash.events.Event;
-	import flash.net.URLLoader;
-	import flash.net.URLRequest;
-	import flash.text.TextField;
 	
 	import Assets.Assets;
 	
@@ -16,8 +13,6 @@ package Screens
 	import Objects.EventTitle;
 	import Objects.GUI.HomeBTN;
 	import Objects.GUI.Label;
-	
-	import Screens.Screen;
 	
 	public class Events extends Screen
 	{			
@@ -59,7 +54,7 @@ package Screens
 													   "Traveling to WHITLEY'S BARBEQUE in Murfreesboro, NC. Leave Turner's at 3:00pm.  Door Prizes and 50/50 raffle to benefit RIDE FOR KIDS.\n" +
 													   "Call for more information.")
 
-		private var EventTitles:Array = new Array();
+		public var EventTitles:Array = new Array();
 
 		//Construct
 		public function Events()
@@ -107,7 +102,7 @@ package Screens
 			{
 				var LabelWidth:int = Locator.DeviceWidth;
 				var LabelHeight:int = (Locator.DeviceHeight-homeBTN.height)/hardCodedEvents;
-				var event:EventTitle = new EventTitle(eventTitleArray[i],eventDistanceArray[i],eventHostArray[i],eventHostPhoneArray[i],LabelWidth,LabelHeight);
+				var event:EventTitle = new EventTitle(eventTitleArray[i],eventDistanceArray[i],eventHostArray[i],eventHostPhoneArray[i],eventDescArray[i],LabelWidth,LabelHeight);
 				
 				this.addChild(event);
 				EventTitles.push(event);
