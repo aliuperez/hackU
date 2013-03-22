@@ -1,6 +1,7 @@
 package Objects
 {
 	import flash.display.Sprite;
+	import flash.display3D.IndexBuffer3D;
 	import flash.events.Event;
 	
 	import Objects.GUI.Label;
@@ -13,15 +14,20 @@ package Objects
 		private var _Distance:int;
 		private var _Host:String;
 		private var _HostWebsite:String;
+		private var _LabelWidth:int;
+		private var _LabelHeight:int;
+		
 		public var Locator:ViewModelLocator=ViewModelLocator.getInstance();
 		
-		public function EventTitle(Title:String,Distance:int,Host:String,HostWebsite:String)
+		public function EventTitle(Title:String,Distance:int,Host:String,HostWebsite:String,LabelWidth:int,LabelHeight:int)
 		{
 			super();
 			this._Title = Title;
 			this._Distance = Distance;
 			this._Host = Host;
 			this._HostWebsite = HostWebsite;
+			this._LabelWidth = LabelWidth;
+			this._LabelHeight = LabelHeight;
 			
 			this.addEventListener(Event.ADDED_TO_STAGE,init)
 		}
@@ -42,7 +48,7 @@ package Objects
 			}
 
 			
-			var EventTitlesLBL:Label = new Label(_Title+tab+_Distance,1,Locator.DeviceWidth,(Locator.DeviceHeight-Locator.DeviceHeight*0.10)/5);
+			var EventTitlesLBL:Label = new Label(_Title+tab+_Distance,0,_LabelWidth,_LabelHeight,0.1,false,0x131DA6,0xFFFFFF);
 			this.addChild(EventTitlesLBL);
 		}
 
@@ -84,6 +90,26 @@ package Objects
 		public function set HostWebsite(value:String):void
 		{
 			_HostWebsite = value;
+		}
+
+		public function get LabelWidth():int
+		{
+			return _LabelWidth;
+		}
+
+		public function set LabelWidth(value:int):void
+		{
+			_LabelWidth = value;
+		}
+
+		public function get LabelHeight():int
+		{
+			return _LabelHeight;
+		}
+
+		public function set LabelHeight(value:int):void
+		{
+			_LabelHeight = value;
 		}
 
 

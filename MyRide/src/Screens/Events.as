@@ -29,6 +29,7 @@ package Screens
 		private var eventHostArray : Array = new Array("1","2","3","4","5");
 		private var eventHostWebsiteArray : Array = new Array("1","2","3","4","5");
 		private var EventTitles:Array = new Array();
+		private var titleLBL:Label; 
 	
 		//Construct
 		public function Events()
@@ -43,15 +44,31 @@ package Screens
 			this.removeEventListener(Event.ADDED_TO_STAGE,init);
 			
 			createButtons();
+			createTitle();
 			createEvents();
 			positionEventLabels();
 		}	
 		
+		private function createTitle():void
+		{
+			var Param:Object;
+			
+			titleLBL = new Label("Events",0,Locator.DeviceWidth-homeBTN.width,homeBTN.height,0,true,0x131DA6,0xFFFFFF);
+			this.addChild(titleLBL);
+			
+			Param = {x:0, y:0, offsetX:Locator.DeviceWidth-titleLBL.width/2, offsetY:titleLBL.height/2};
+			new FluidObject(titleLBL, Param);	
+		}
+		
 		private function createEvents():void
 		{
-			for(var i:int = 0;i<5;i++)
+			var hardCodedEvents:int = 5;
+			for(var i:int = 0;i<hardCodedEvents;i++)
 			{
-				var event:EventTitle = new EventTitle(eventTitleArray[i],eventDistanceArray[i],eventHostArray[i],eventHostWebsiteArray[i]);
+				var LabelWidth:int = Locator.DeviceWidth;
+				var LabelHeight:int = (Locator.DeviceHeight-homeBTN.height)/hardCodedEvents;
+				var event:EventTitle = new EventTitle(eventTitleArray[i],eventDistanceArray[i],eventHostArray[i],eventHostWebsiteArray[i],LabelWidth,LabelHeight);
+				
 				this.addChild(event);
 				EventTitles.push(event);
 			}
@@ -63,8 +80,8 @@ package Screens
 			var count:int = 1;
 			for(var i:int = 0;i<EventTitles.length;i++)
 			{
-				trace(homeBTN.x);
-					Param = {x:0, y:0, offsetX:EventTitles[i].width/2, offsetY:((homeBTN.x-homeBTN.height/2-11)*count)+((EventTitles[i].height-7)*count)};
+				trace(EventTitles[i].height);
+					Param = {x:0, y:0, offsetX:EventTitles[i].width/2, offsetY:-12*(count-1)+(homeBTN.y+homeBTN.height/2+EventTitles[i].height/2)*count};
 					new FluidObject(EventTitles[i], Param);				
 				
 				count++
