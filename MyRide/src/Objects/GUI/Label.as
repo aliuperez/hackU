@@ -43,20 +43,17 @@ package Objects.GUI
 			this.removeEventListener(Event.ADDED_TO_STAGE,init);
 			
 			Draw();
-			
-			this.addEventListener(MouseEvent.CLICK,click);
-		}
-		
-		protected function click(event:MouseEvent):void
-		{
-			Locator.events.SwitchToScreen();
 		}
 		
 		private function Draw():void
 		{
 			
 			var Label:Shape = new Shape();
+			if(_LineThickness!=0)
+			{
 			Label.graphics.lineStyle(_LineThickness);
+			}
+			
 			Label.graphics.beginFill(Color);
 			Label.graphics.drawRect(0,0,_LabelWidth,_LabelHeight);
 			Label.graphics.endFill();

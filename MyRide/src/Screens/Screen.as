@@ -4,13 +4,18 @@ package Screens
 	import flash.utils.getDefinitionByName;
 	import flash.utils.getQualifiedClassName;
 	
+	import Objects.GUI.HomeBTN;
+	import Objects.GUI.Label;
+	
 	import ViewModel.ViewModelLocator;
 	
 	public class Screen extends Sprite
 	{
 		private var _ScreenWidth:int;
 		private var _ScreenHeight:int;
-		
+		public var homeBTN:HomeBTN;
+		public var titleLBL:Label; 
+				
 		public var Locator:ViewModelLocator=ViewModelLocator.getInstance();
 		
 		public function Screen()
@@ -18,26 +23,6 @@ package Screens
 			super();
 		}
 		
-		public function get ScreenHeight():int
-		{
-			return _ScreenHeight;
-		}
-
-		public function set ScreenHeight(value:int):void
-		{
-			_ScreenHeight = value;
-		}
-
-		public function get ScreenWidth():int
-		{
-			return _ScreenWidth;
-		}
-
-		public function set ScreenWidth(value:int):void
-		{
-			_ScreenWidth = value;
-		}
-
 		public function SwitchToScreen():void
 		{
 			var screen:String =getDefinitionByName(getQualifiedClassName(this)).toString();
@@ -46,7 +31,6 @@ package Screens
 			{
 				case "[class Home]":
 					trace("Home Screen Active!!");
-					Locator.home.visible = true;
 					HideScreen(Locator.weather);
 					HideScreen(Locator.events);
 					HideScreen(Locator.myDealer);
@@ -56,7 +40,6 @@ package Screens
 				
 				case "[class Weather]":
 					trace("Weather Screen Active!!");
-					Locator.weather.visible = true;
 					HideScreen(Locator.home);
 					HideScreen(Locator.events);
 					HideScreen(Locator.myDealer);
@@ -66,7 +49,6 @@ package Screens
 				
 				case "[class Events]":
 					trace("Events Screen Active!!");
-					Locator.events.visible = true;
 					HideScreen(Locator.home);
 					HideScreen(Locator.weather);
 					HideScreen(Locator.myDealer);
@@ -76,7 +58,6 @@ package Screens
 				
 				case "[class MyDealer]":
 					trace("MyDealer Screen Active!!");
-					Locator.myDealer.visible = true;
 					HideScreen(Locator.home);
 					HideScreen(Locator.weather);
 					HideScreen(Locator.events);
@@ -86,7 +67,6 @@ package Screens
 				
 				case "[class Trips]":
 					trace("Trips Screen Active!!");
-					Locator.trips.visible = true;
 					HideScreen(Locator.home);
 					HideScreen(Locator.weather);
 					HideScreen(Locator.myDealer);
@@ -96,7 +76,6 @@ package Screens
 				
 				case "[class Service]":
 					trace("Service Screen Active!!");
-					Locator.service.visible = true;
 					HideScreen(Locator.home);
 					HideScreen(Locator.weather);
 					HideScreen(Locator.myDealer);
@@ -110,6 +89,26 @@ package Screens
 		public function HideScreen(ScreenName:Screen):void
 		{
 			ScreenName.visible = false;	
+		}
+
+		public function get ScreenHeight():int
+		{
+			return _ScreenHeight;
+		}
+		
+		public function set ScreenHeight(value:int):void
+		{
+			_ScreenHeight = value;
+		}
+		
+		public function get ScreenWidth():int
+		{
+			return _ScreenWidth;
+		}
+		
+		public function set ScreenWidth(value:int):void
+		{
+			_ScreenWidth = value;
 		}
 	}
 }

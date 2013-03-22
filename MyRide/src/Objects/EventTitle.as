@@ -48,7 +48,7 @@ package Objects
 			}
 
 			
-			var EventTitlesLBL:Label = new Label(_Title+tab+_Distance,0,_LabelWidth,_LabelHeight,0.1,false,0x131DA6,0xFFFFFF);
+			var EventTitlesLBL:Label = new Label(_Title+tab+_Distance,1,_LabelWidth,_LabelHeight,0.1,false,0x131DA6,0xFFFFFF);
 			this.addChild(EventTitlesLBL);
 		}
 

@@ -12,16 +12,13 @@ package Screens
 	import Dependencies.FluidLayout.FluidObject;
 	
 	import Objects.EventTitle;
-	import Objects.GUI.HomeBTN;
 	import Objects.GUI.Label;
 	
 	import Screens.Screen;
+	import Objects.GUI.HomeBTN;
 	
 	public class Events extends Screen
-	{
-	
-		private var homeBTN:HomeBTN;
-			
+	{			
 		
 		//hardcoded demo information
 		private var eventTitleArray : Array = new Array("I have info","2","3","4","5");
@@ -29,7 +26,9 @@ package Screens
 		private var eventHostArray : Array = new Array("1","2","3","4","5");
 		private var eventHostWebsiteArray : Array = new Array("1","2","3","4","5");
 		private var EventTitles:Array = new Array();
-		private var titleLBL:Label; 
+		
+		private var homeBTN:HomeBTN;
+		private var titleLBL:Label;
 	
 		//Construct
 		public function Events()

@@ -8,8 +8,8 @@ package Screens
 	
 	import Dependencies.FluidLayout.FluidObject;
 	
-	import Objects.GUI.EventsBTN;
 	import Objects.GUI.HomeBTN;
+	import Objects.GUI.Label;
 	
 	import Screens.Screen;
 
@@ -48,17 +48,27 @@ package Screens
 				today.text = "Today";
 				
 				createButtons();
+				createTitle();
 				requestRSS();
 				loadXML(URL);
 				placeText();
 			}			
 			
+			private function createTitle():void
+			{
+				var Param:Object;
+				
+				titleLBL = new Label("Weather",0,Locator.DeviceWidth-homeBTN.width,homeBTN.height,0,true,0x131DA6,0xFFFFFF);
+				this.addChild(titleLBL);
+				
+				Param = {x:0, y:0, offsetX:Locator.DeviceWidth-titleLBL.width/2, offsetY:titleLBL.height/2};
+				new FluidObject(titleLBL, Param);	
+			}
+			
 			private function createButtons():void
 			{
-				var homeBTN:HomeBTN = new HomeBTN();
+				homeBTN = new HomeBTN();
 				this.addChild(homeBTN);
-				
-
 				
 				var Param:Object = {x:0,y:0,offsetX:homeBTN.width/2,offsetY:homeBTN.height/2};
 				new FluidObject(homeBTN,Param);		
