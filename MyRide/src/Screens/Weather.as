@@ -37,7 +37,9 @@ package Screens
 			private var min:TextField = new TextField();
 			private var tomorrow:TextField = new TextField();
 			private var today:TextField = new TextField();
-
+			
+			private var weatherIcon:Bitmap = new Assets.Assets.cloudIcon();
+			
 			
 		// Construct
 			public function Weather()
@@ -101,6 +103,7 @@ package Screens
 				addChild(min);
 				addChild(tomorrow);
 				addChild(today);
+				addChild(weatherIcon);
 				
 				var totalWidth:int = min.width + max.width + mint.width+5;
 				var Param:Object;
@@ -132,6 +135,9 @@ package Screens
 				
 				Param = {x:0,y:0,offsetX:tomorrow.x, offsetY:temp.y};
 				new FluidObject(maxt,Param);
+				
+				Param = {x:0,y:0,offsetX:today.x, offsetY:today.y-weatherIcon.height};
+				new FluidObject(weatherIcon,Param);
 				
 			}
 			
@@ -170,7 +176,62 @@ package Screens
 				// find out what day tomorrow is
  					tomorrow.text = getTomorrow(day);
 					
-					trace(Data.channel.yweather::location.@city);
+					
+					removeChild(weatherIcon);
+					switch (codeToday) {  
+						 
+						
+						case "12":  
+							weatherIcon = new Assets.Assets.rainIcon(); 
+						break;  
+						
+						case "18":  
+							weatherIcon = new Assets.Assets.sunIcon();  
+						break;  
+ 
+						case "25":  
+							weatherIcon = new Assets.Assets.snowIcon(); 
+						break;  
+ 
+						case "26":  
+							weatherIcon = new Assets.Assets.snowIcon();;  
+						break;  
+						
+						case "29":  
+							weatherIcon = new Assets.Assets.sunIcon();  
+						break; 
+						
+						case "33":  
+							weatherIcon = new Assets.Assets.sunIcon();
+						break;  
+						
+						case "34":  
+							weatherIcon = new Assets.Assets.sunIcon();
+						break;  
+						 
+						case "35":  
+							weatherIcon = new Assets.Assets.sunIcon();   
+						break;  
+						
+						case "40":  
+							weatherIcon = new Assets.Assets.sunIcon();  
+						break;  
+						
+						case "43":  
+							weatherIcon = new Assets.Assets.snowIcon();  
+							break;  
+						
+						case "44":  
+							weatherIcon = new Assets.Assets.cloudIcon();  
+						break; 
+						
+						default:
+							
+						break;
+					}  
+					
+					addChild(weatherIcon);
+					placeText();
 			
 			}
 			

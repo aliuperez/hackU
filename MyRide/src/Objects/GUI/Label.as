@@ -49,9 +49,9 @@ package Objects.GUI
 		{
 			
 			var Label:Shape = new Shape();
-			if(_LineThickness!=0)
+			if(_LineThickness!=0)// no border means it is a title
 			{
-			Label.graphics.lineStyle(_LineThickness);
+				Label.graphics.lineStyle(_LineThickness);
 			}
 			
 			Label.graphics.beginFill(Color);
@@ -60,10 +60,16 @@ package Objects.GUI
 			
 			this.addChild(Label);
 			
-			var myFormat : TextFormat = new TextFormat();
-			var textSize:int = 50;
-			myFormat.size = textSize;
+			var textSize:int = Label.height/2;
 			
+			if(_LineThickness!=0)// no border means it is a title
+			{
+				textSize = Label.height/7;
+			}
+			
+			var myFormat : TextFormat = new TextFormat();
+			
+			myFormat.size = textSize;
 			myFormat.leftMargin = Label.width * _LeftMargin;
 			myFormat.color = _FontColor;
 			
@@ -75,6 +81,7 @@ package Objects.GUI
 				myFormat.align = "center";
 			}
 			
+			text.wordWrap = true;
 			text.selectable=false;
 			text.border = false;
 			text.width=Label.width;
