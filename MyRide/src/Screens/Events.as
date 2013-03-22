@@ -23,8 +23,8 @@ package Screens
 	{			
 		
 		//hardcoded demo information
-		private var eventTitleArray : Array = new Array("I have info","2","3","4","5");
-		private var eventDistanceArray : Array = new Array("1","2","3","4","5");
+		private var eventTitleArray : Array = new Array("Women's Garage Party","21st Annual Spring Bike Show","Poker Run","Motorcycle Bootcamp","Turner's Honda Dinner Ride");
+		private var eventDistanceArray : Array = new Array("5.4","8.8","11.9","13.5","35.2");
 		private var eventHostArray : Array = new Array("1","2","3","4","5");
 		private var eventHostWebsiteArray : Array = new Array("1","2","3","4","5");
 		private var EventTitles:Array = new Array();

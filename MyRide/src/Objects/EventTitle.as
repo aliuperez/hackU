@@ -42,7 +42,7 @@ package Objects
 		{
 			var tab:String = new String();
 
-			for(var i:int=0;i<Locator.DeviceWidth/8;i++)
+			for(var i:int=0;i<Locator.DeviceWidth/10;i++)
 			{
 				tab +=" ";
 			}

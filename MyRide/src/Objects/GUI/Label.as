@@ -23,7 +23,7 @@ package Objects.GUI
 		
 		private var Locator:ViewModelLocator=ViewModelLocator.getInstance();
 		
-		public function Label(LabelText:String,LabelThickness:int,LabelWidth:int, LabelHeight:int,LeftMargin:Number,Center:Boolean,Color:uint,FontColor:uint = 0x000000)
+		public function Label(LabelText:String,LabelThickness:int,LabelWidth:int, LabelHeight:int,RightMargin:Number,Center:Boolean,Color:uint,FontColor:uint = 0x000000)
 		{
 			super();
 			this._LabelText = LabelText;
