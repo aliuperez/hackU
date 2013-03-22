@@ -1,7 +1,4 @@
-/*	Weather Page functions
- *		
- *
- */
+
 package Screens
 {
 	import flash.events.Event;
@@ -47,6 +44,7 @@ package Screens
 			protected function init(event:Event):void
 			{
 				this.removeEventListener(Event.ADDED_TO_STAGE,init);
+				today.text = "Today";
 				
 				createButtons();
 				requestRSS();
@@ -64,24 +62,22 @@ package Screens
 				
 			}
 			
+
 			private function placeText():void
 			{
 				
-				
 				//add kids
-				//addChild(maxt);
-				//addChild(mint);
+				addChild(maxt);
+				addChild(mint);
 				addChild(city);
-				//addChild(humidity);
+				addChild(humidity);
 				addChild(temp);
 				addChild(max);
 				addChild(min);
-				//addChild(tomorrow);
+				addChild(tomorrow);
 				addChild(today);
-			
 				
-				
-				var totalWidth:int = min.width + max.width + mint.width + maxt.width;
+				var totalWidth:int = min.width + max.width + mint.width+5;
 				var Param:Object;
 				
 				//move stuff
@@ -96,28 +92,24 @@ package Screens
 				
 				Param = {x:0,y:0,offsetX:temp.x + min.width, offsetY:min.y};
 				new FluidObject(max,Param);
-			
 				
 				Param = {x:0,y:0,offsetX:totalWidth/2+city.width/2, offsetY:min.y+min.height/2};
 				new FluidObject(city,Param);
 				
+				Param = {x:0,y:0,offsetX:max.x, offsetY:temp.y};
+				new FluidObject(humidity,Param);
 				
+				Param = {x:0,y:0,offsetX:max.x+max.width, offsetY:today.y};
+				new FluidObject(tomorrow,Param);
 				
-				//Param = {x:0,y:0,offsetX:totalWidth/2, offsetY:temp.y};
-				//new FluidObject(tomorrow,Param);
-				/*
-				
-				
-				Param = {x:0,y:0,offsetX:ScreenWidth/2 - mint/2,offsetY:30};
+				Param = {x:0,y:0,offsetX:tomorrow.x, offsetY:max.y};
 				new FluidObject(mint,Param);
 				
-				Param = {x:0,y:0,offsetX:40,offsetY:40};
+				Param = {x:0,y:0,offsetX:tomorrow.x, offsetY:temp.y};
 				new FluidObject(maxt,Param);
-				*/
+				
 			}
-	
-	/* XML stuff */
-		//	Request XML from yahoo API
+
 			public function requestRSS():void
 			{
 				URL = "http://weather.yahooapis.com/forecastrss" + "?w=" + locationNumber + "&u=" + "f";
@@ -144,7 +136,7 @@ package Screens
 				var codeTomorrow:String = Data.channel.item.yweather::forecast[1].@code; 
 				
 				//Assigning the information to the text fields  
-					city.text = Data.channel.yweather::location.@city; 
+					city.text = Data.channel.item.yweather::location.@city; 
 					maxt.text ="High: " +Data.channel.item.yweather::forecast[1].@high + " °F";  
 					mint.text = "Low: "+Data.channel.item.yweather::forecast[1].@low + " °F";  
 					max.text = "High: " +Data.channel.item.yweather::forecast[0].@high + " °F";  
