@@ -2,8 +2,11 @@ package Screens
 {
 	import com.greensock.TweenLite;
 	
+	import flash.display.Bitmap;
 	import flash.events.Event;
 	import flash.geom.Point;
+	
+	import Assets.Assets;
 	
 	import Dependencies.FluidLayout.FluidObject;
 	
@@ -22,12 +25,15 @@ package Screens
 		public var eventsBTNPoint:Point = new Point();
 		public var myDealerBTNPoint:Point = new Point();
 		public var serviceBTNPoint:Point = new Point();
+		public var GarageDoorPoint:Point = new Point();
 		
 		public var weatherBTN:WeatherBTN;
 		public var tripsBTN:TripsBTN;
 		public var eventsBTN:EventsBTN;
 		public var myDealerBTN:MyDealerBTN;
 		public var serviceBTN:ServiceBTN;
+		public var Head:Bitmap;
+		public var GarageDoor:Bitmap;
 		private var ScreenNameToSwitchTo:Screen;
 		
 		public function Home()
@@ -47,6 +53,8 @@ package Screens
 		
 		public function transitionInAnimation():void
 		{
+			TweenLite.to(GarageDoor, 3, {y:-GarageDoor.height});
+			
 			TweenLite.from(weatherBTN, 1, {x:-weatherBTN.width, alpha:0});
 			TweenLite.from(tripsBTN, 1, {x:Locator.DeviceWidth+tripsBTN.width, alpha:0});
 			TweenLite.from(eventsBTN, 1, {y:Locator.DeviceHeight+eventsBTN.height, alpha:0});
@@ -56,6 +64,7 @@ package Screens
 		
 		public function transitionOutAnimation():void
 		{		
+			TweenLite.to(GarageDoor, 1, {y:0, alpha:1});
 			TweenLite.to(weatherBTN, 1, {x:-weatherBTN.width});
 			TweenLite.to(tripsBTN, 1, {x:Locator.DeviceWidth+tripsBTN.width});
 			TweenLite.to(eventsBTN, 1, {y:Locator.DeviceHeight+eventsBTN.height});
@@ -71,11 +80,25 @@ package Screens
 		private function createButtons():void
 		{
 			var Param:Object;
-						
+			
 			weatherBTN = new WeatherBTN();
 			this.addChild(weatherBTN);
 			Param = {x:0,y:0,offsetX:weatherBTN.width/2,offsetY:ScreenHeight*0.45};
-			new FluidObject(weatherBTN,Param);	
+			new FluidObject(weatherBTN,Param);
+			
+			Head = new Assets.Assets.Garage();
+			Head.width = Locator.DeviceWidth;
+			Head.height = Locator.DeviceHeight*0.53-weatherBTN.height;
+			this.addChild(Head);
+			Param = {x:0,y:0,offsetX:0,offsetY:0};
+			new FluidObject(Head,Param);
+			
+			GarageDoor = new Assets.Assets.GarageDoor();
+			GarageDoor.width = Locator.DeviceWidth;
+			GarageDoor.height = Locator.DeviceHeight*0.53-weatherBTN.height;
+			this.addChild(GarageDoor);
+			Param = {x:0,y:0,offsetX:0,offsetY:0};
+			new FluidObject(GarageDoor,Param);
 			
 			tripsBTN = new TripsBTN();
 			this.addChild(tripsBTN);
@@ -97,6 +120,7 @@ package Screens
 			Param = {x:0,y:0,offsetX:eventsBTN.x+eventsBTN.width/2+serviceBTN.width/2,offsetY:myDealerBTN.y+myDealerBTN.height/2+serviceBTN.height/2};
 			new FluidObject(serviceBTN,Param);	
 			
+			GarageDoorPoint = new Point (GarageDoor.x,GarageDoor.y);
 			weatherBTNPoint = new Point(weatherBTN.x,weatherBTN.y);
 			tripsBTNPoint = new Point(tripsBTN.x,tripsBTN.y);
 			eventsBTNPoint = new Point(eventsBTN.x,eventsBTN.y);

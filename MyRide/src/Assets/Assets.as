@@ -8,6 +8,18 @@ package Assets
 		[Embed(source="../Assets/Icons/calendar.png")]
 		public static const Calendar:Class;
 		
+		[Embed(source="../Assets/parking_garage.jpg")]
+		public static const Garage:Class;
+		
+		[Embed(source="../Assets/GarageDoor.jpg")]
+		public static const GarageDoor:Class;
+		
+		[Embed(source="../Assets/Icons/search_icon.png")]
+		public static const MoreInfoIcon:Class;
+		
+		[Embed(source="../Assets/Icons/power_icon.png")]
+		public static const ExitIcon:Class;
+		
 		[Embed(source="../Assets/Icons/special_icon.png")]
 		public static const SpecialsIcon:Class;
 		

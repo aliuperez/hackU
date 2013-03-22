@@ -3,9 +3,10 @@ package Objects
 	import flash.display.Sprite;
 	import flash.display3D.IndexBuffer3D;
 	import flash.events.Event;
+	import flash.events.MouseEvent;
 	
 	import Objects.GUI.Label;
-	
+		
 	import ViewModel.ViewModelLocator;
 	
 	public class EventTitle extends Sprite
@@ -16,6 +17,7 @@ package Objects
 		private var _HostWebsite:String;
 		private var _LabelWidth:int;
 		private var _LabelHeight:int;
+		
 		
 		public var Locator:ViewModelLocator=ViewModelLocator.getInstance();
 		
@@ -36,6 +38,18 @@ package Objects
 		{
 			this.removeEventListener(Event.ADDED_TO_STAGE,init);
 			draw();
+			
+			this.addEventListener(MouseEvent.CLICK,click);
+		}
+		
+		protected function click(event:MouseEvent):void
+		{
+			populateMoreInfo();
+		}
+		
+		private function populateMoreInfo():void
+		{
+			Locator.moreInfo.visible = true;
 		}
 		
 		private function draw():void
