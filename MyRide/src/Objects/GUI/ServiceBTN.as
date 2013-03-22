@@ -38,7 +38,7 @@ package Objects.GUI
 		{
 			var ServiceBTNSprite:Shape = new Shape();
 			ServiceBTNSprite.graphics.beginFill(0x881D9D);
-			ServiceBTNSprite.graphics.drawRect(0,0,64,64);
+			ServiceBTNSprite.graphics.drawRect(0,0,Locator.DeviceWidth*0.65,Locator.DeviceHeight*0.15);
 			ServiceBTNSprite.x = Math.ceil(-ServiceBTNSprite.width/2);
 			ServiceBTNSprite.y = Math.ceil(-ServiceBTNSprite.height/2);
 			ServiceBTNSprite.graphics.endFill();

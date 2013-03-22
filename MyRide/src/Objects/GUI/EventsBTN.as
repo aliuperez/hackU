@@ -38,7 +38,7 @@ package Objects.GUI
 		{
 			var EventsBTNSprite:Shape = new Shape();
 			EventsBTNSprite.graphics.beginFill(0x881D9D);
-			EventsBTNSprite.graphics.drawRect(0,0,Locator.DeviceWidth*0.35,Locator.DeviceWidth*0.35);
+			EventsBTNSprite.graphics.drawRect(0,0,Locator.DeviceWidth*0.35,Locator.DeviceHeight*0.25);
 			EventsBTNSprite.x = Math.ceil(-EventsBTNSprite.width/2);
 			EventsBTNSprite.y = Math.ceil(-EventsBTNSprite.height/2);
 			EventsBTNSprite.graphics.endFill();

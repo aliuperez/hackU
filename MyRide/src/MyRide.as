@@ -13,6 +13,7 @@ package
 	import Screens.MyDealer;
 	import Screens.Service;
 	import Screens.Trips;
+	import flash.geom.Rectangle;
 	
 	//[SWF(frameRate="60",width="1280",height="720",backgroundColor="0x000000")]
 	
@@ -77,8 +78,10 @@ package
 		
 		private function setDeviceSize():void
 		{
-			Locator.DeviceHeight=800;
-			Locator.DeviceWidth=600;
+			var deviceSize:Rectangle = new Rectangle(0,0,Math.min(stage.fullScreenWidth,stage.fullScreenHeight),Math.max(stage.fullScreenWidth,stage.fullScreenHeight));
+			
+			Locator.DeviceHeight=deviceSize.height;
+			Locator.DeviceWidth=deviceSize.width;
 		}
 	}
 }

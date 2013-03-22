@@ -38,7 +38,7 @@ package Objects.GUI
 		{
 			var HomeBTNSprite:Shape = new Shape();
 			HomeBTNSprite.graphics.beginFill(0x131DA6);
-			HomeBTNSprite.graphics.drawRect(0,0,64,64);
+			HomeBTNSprite.graphics.drawRect(0,0,Locator.DeviceWidth*0.10,Locator.DeviceHeight*0.1);
 			HomeBTNSprite.graphics.endFill();
 			this.addChild(HomeBTNSprite);
 			HomeBTNSprite.x = Math.ceil(-HomeBTNSprite.width/2);

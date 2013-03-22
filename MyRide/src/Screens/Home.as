@@ -54,11 +54,9 @@ package Screens
 			Param = {x:0,y:0,offsetX:eventsBTN.x+eventsBTN.width/2+myDealerBTN.width/2,offsetY:eventsBTN.y-eventsBTN.height/2+myDealerBTN.height/2};
 			new FluidObject(myDealerBTN,Param);	
 			
-
-			
 			var serviceBTN:ServiceBTN = new ServiceBTN();
 			this.addChild(serviceBTN);
-			Param = {x:0,y:0,offsetX:tripsBTN.x + serviceBTN.width*1.5,offsetY:tripsBTN.y};
+			Param = {x:0,y:0,offsetX:eventsBTN.x+eventsBTN.width/2+serviceBTN.width/2,offsetY:myDealerBTN.y+myDealerBTN.height/2+serviceBTN.height/2};
 			new FluidObject(serviceBTN,Param);	
 			
 		}
