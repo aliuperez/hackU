@@ -15,6 +15,8 @@ package Screens
 	import Objects.GUI.Label;
 	
 	import Screens.Screen;
+	import flash.text.TextFormat;
+	import flash.display.Sprite;
 
 	public class Weather extends Screen
 	{
@@ -37,6 +39,8 @@ package Screens
 			private var min:TextField = new TextField();
 			private var tomorrow:TextField = new TextField();
 			private var today:TextField = new TextField();
+			private var rideNote:TextField = new TextField();
+			
 			
 			private var weatherIcon:Bitmap = new Assets.Assets.cloudIcon();
 			
@@ -51,7 +55,7 @@ package Screens
 			protected function init(event:Event):void
 			{
 				this.removeEventListener(Event.ADDED_TO_STAGE,init);
-				today.text = "Today";
+
 				
 				createButtons();
 				createTitle();
@@ -93,6 +97,15 @@ package Screens
 			private function placeText():void
 			{
 				
+				var square:Sprite = new Sprite();
+				addChild(square);
+				//square.graphics.lineStyle(0,0x00ff00);
+			
+				var myFormat:TextFormat = new TextFormat();
+				myFormat.size = 20;
+				myFormat.font = "Arial";
+				myFormat.color = 0xFFFFFF; 
+				
 				//add kids
 				addChild(maxt);
 				addChild(mint);
@@ -103,6 +116,28 @@ package Screens
 				addChild(min);
 				addChild(tomorrow);
 				addChild(today);
+				addChild(weatherIcon);
+				addChild(rideNote);
+				
+			//  Normal
+				maxt.defaultTextFormat = myFormat;
+				mint.defaultTextFormat = myFormat;
+				humidity.defaultTextFormat = myFormat;
+				temp.defaultTextFormat = myFormat;;
+				max.defaultTextFormat = myFormat;
+				min.defaultTextFormat = myFormat;
+				rideNote.defaultTextFormat = myFormat;
+
+			//  Titles
+				today.text = "Today";
+				myFormat.size = 25;
+				today.defaultTextFormat= myFormat;
+				tomorrow.defaultTextFormat = myFormat;
+				tomorrow.width = 120;
+				city.defaultTextFormat = myFormat;
+				
+			
+				
 				addChild(weatherIcon);
 				
 				var totalWidth:int = min.width + max.width + mint.width+5;
@@ -127,7 +162,7 @@ package Screens
 				Param = {x:0,y:0,offsetX:max.x, offsetY:temp.y};
 				new FluidObject(humidity,Param);
 				
-				Param = {x:0,y:0,offsetX:max.x+max.width, offsetY:today.y};
+				Param = {x:0,y:0,offsetX:max.x+max.width+20, offsetY:today.y};
 				new FluidObject(tomorrow,Param);
 				
 				Param = {x:0,y:0,offsetX:tomorrow.x, offsetY:max.y};
@@ -136,22 +171,33 @@ package Screens
 				Param = {x:0,y:0,offsetX:tomorrow.x, offsetY:temp.y};
 				new FluidObject(maxt,Param);
 				
-				Param = {x:0,y:0,offsetX:today.x, offsetY:today.y-weatherIcon.height};
+				Param = {x:0,y:0,offsetX:ScreenWidth/2 - weatherIcon.width/2, offsetY:homeBTN.height+weatherIcon.height};
 				new FluidObject(weatherIcon,Param);
+				
+				weatherIcon.width *= 1.5;
+				weatherIcon.height *= 1.5;
+				
+				Param = {x:0,y:0,offsetX:ScreenWidth/2-rideNote.width/2, offsetY:ScreenHeight*.90-rideNote.height};
+				new FluidObject(rideNote,Param);
+				rideNote.width = ScreenWidth/2;
+				
+				square.graphics.beginFill(0x0178bd);
+				square.graphics.drawRect(0,0,ScreenWidth,ScreenHeight);
+				square.graphics.endFill();
+				square.x = ScreenWidth/2-square.width/2;
+				square.y = homeBTN.height;
+				square.width = ScreenWidth;
+				
 				
 			}
 			
 		//	load an XML document
 			private function loadXML(xmlURL:String):void 
 			{  
-				
 				var loader:URLLoader = new URLLoader();  
 				var request:URLRequest = new URLRequest(xmlURL);  
-					
 				loader.load(request);  
 				loader.addEventListener(Event.COMPLETE, readData);  
-				
-				
 			}  
 			
 		//	read data from XML
@@ -178,6 +224,8 @@ package Screens
 					
 					
 					removeChild(weatherIcon);
+					
+					rideNote.text = "";
 					switch (codeToday) {  
 						 
 						
@@ -186,35 +234,37 @@ package Screens
 						break;  
 						
 						case "18":  
-							weatherIcon = new Assets.Assets.sunIcon();  
+							weatherIcon = new Assets.Assets.cloudIcon();  
 						break;  
  
 						case "25":  
-							weatherIcon = new Assets.Assets.snowIcon(); 
+							weatherIcon = new Assets.Assets.cloudIcon();
 						break;  
  
 						case "26":  
-							weatherIcon = new Assets.Assets.snowIcon();;  
+							weatherIcon = new Assets.Assets.cloudIcon();;  
 						break;  
 						
 						case "29":  
-							weatherIcon = new Assets.Assets.sunIcon();  
+							weatherIcon = new Assets.Assets.cloudIcon();  
 						break; 
 						
 						case "33":  
 							weatherIcon = new Assets.Assets.sunIcon();
+							rideNote.text = "Go for a ride today!";
 						break;  
 						
 						case "34":  
 							weatherIcon = new Assets.Assets.sunIcon();
+							rideNote.text = "Go for a ride today!";
 						break;  
 						 
 						case "35":  
-							weatherIcon = new Assets.Assets.sunIcon();   
+							weatherIcon = new Assets.Assets.rainIcon();   
 						break;  
 						
 						case "40":  
-							weatherIcon = new Assets.Assets.sunIcon();  
+							weatherIcon = new Assets.Assets.rainIcon();  
 						break;  
 						
 						case "43":  
