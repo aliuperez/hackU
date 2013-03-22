@@ -8,6 +8,7 @@ package Screens
 	
 	import Objects.GUI.HomeBTN;
 	import Objects.GUI.Label;
+	import Objects.GUI.Logo;
 	
 
 	public class Service extends Screen
@@ -46,6 +47,12 @@ package Screens
 			
 			Param = {x:0, y:0, offsetX:titleLBL.x+titleLBL.width/2-icon.width, offsetY:titleLBL.y-icon.height/2};
 			new FluidObject(icon, Param);
+			
+			var logo:Logo = new Logo();
+			this.addChild(logo);
+			
+			Param = {x:0, y:0, offsetX:titleLBL.x-titleLBL.width/2+icon.width/2, offsetY:titleLBL.y};
+			new FluidObject(logo, Param);
 		}
 		
 		private function createButtons():void

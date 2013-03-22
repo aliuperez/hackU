@@ -8,6 +8,9 @@ package Assets
 		[Embed(source="../Assets/Icons/calendar.png")]
 		public static const Calendar:Class;
 		
+		[Embed(source="../Assets/Icons/logo_official.png")]
+		public static const Logo:Class;
+		
 		[Embed(source="../Assets/bikes/2012-yamaha-yzf-r6.png")]
 		public static const YamahaBike:Class;
 		

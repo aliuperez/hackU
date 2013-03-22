@@ -2,10 +2,12 @@
 package Screens
 {
 	import flash.display.Bitmap;
+	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
 	import flash.text.TextField;
+	import flash.text.TextFormat;
 	
 	import Assets.Assets;
 	
@@ -13,10 +15,9 @@ package Screens
 	
 	import Objects.GUI.HomeBTN;
 	import Objects.GUI.Label;
+	import Objects.GUI.Logo;
 	
 	import Screens.Screen;
-	import flash.text.TextFormat;
-	import flash.display.Sprite;
 
 	public class Weather extends Screen
 	{
@@ -82,6 +83,12 @@ package Screens
 				
 				Param = {x:0, y:0, offsetX:titleLBL.x+titleLBL.width/2-icon.width, offsetY:titleLBL.y-icon.height/2};
 				new FluidObject(icon, Param);
+				
+				var logo:Logo = new Logo();
+				this.addChild(logo);
+				
+				Param = {x:0, y:0, offsetX:titleLBL.x-titleLBL.width/2+icon.width/2, offsetY:titleLBL.y};
+				new FluidObject(logo, Param);
 			}
 			
 			private function createButtons():void
