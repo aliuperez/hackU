@@ -4,6 +4,7 @@
 package Screens
 {
 	import flash.display.Bitmap;
+	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
 	import flash.net.URLLoader;
@@ -107,11 +108,11 @@ package Screens
 			
 			Param = {x:0,y:0,offsetX:ScreenWidth-specialsBTN.width/2,offsetY:ScreenHeight-specialsBTN.height};
 			new FluidObject(specialsBTN,Param);
-			/*
-			phoneBTN = new PhoneBTN();
+			
+			var phoneBTN:PhoneBTN = new PhoneBTN();
 			this.addChild(phoneBTN);
 			Param = {x:0,y:0,offsetX:ScreenWidth-phoneBTN.width,offsetY:ScreenHeight/2};
-			new FluidObject(phoneBTN,Param);	*/		
+			new FluidObject(phoneBTN,Param);			
 		}
 		
 		public function gotoSite():void
@@ -130,28 +131,39 @@ package Screens
 		
 		private function placeText():void
 		{
+			var myFormat:TextFormat = new TextFormat();
+
+			myFormat.size = 20;
+			myFormat.font = "Arial";
+			myFormat.color = 0xFFFFFF; 
+			//myFormat.align = TextFormatAlign.CENTER;
+			
+			var square:Sprite = new Sprite();
+			addChild(square);
+			
 			
 			dealerText.text = myDealer;
 			phoneText.text = getPhoneText();
 			addressText.text = Address1 +"\n" +Address2;
 
-			
-			
-			
+				
 			//add kids
 			addChild(dealerText);
 			addChild(phoneText);
 			addChild(addressText);
-
-			
-			var myFormat:TextFormat = new TextFormat();
-			myFormat.size = 20;
-			myFormat.font = "Helvetica";
 			
 			
-			dealerText.setTextFormat(myFormat);
-			phoneText.setTextFormat(myFormat);
-			addressText.setTextFormat( myFormat);
+			
+			phoneText.setTextFormat (myFormat);
+			phoneText.width = ScreenWidth;
+			
+			addressText.setTextFormat(myFormat);
+			addressText.width = ScreenWidth;
+			
+			myFormat.size = 25;
+			dealerText.setTextFormat (myFormat);
+			dealerText.width = ScreenWidth;
+			
 
 
 			
@@ -166,6 +178,14 @@ package Screens
 			
 			Param = {x:0, y:0, offsetX:ScreenWidth/2-dealerText.width/2, offsetY:phoneText.y + phoneText.height/4};
 			new FluidObject(addressText, Param);
+			
+			
+			square.graphics.beginFill(0x0178bd);
+			square.graphics.drawRect(0,0,ScreenWidth,ScreenHeight);
+			square.graphics.endFill();
+			square.x = ScreenWidth/2-square.width/2;
+			square.y = homeBTN.height;
+			square.width = ScreenWidth;
 		}
 		
 		
