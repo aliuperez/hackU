@@ -31,7 +31,20 @@ package Objects.GUI
 		
 		protected function click(event:MouseEvent):void
 		{
-			Locator.home.SwitchToScreen();
+			Locator.myRide.transitionOutAnimation();
+			
+			this.addEventListener(Event.ENTER_FRAME,update);
+		}
+		
+		private function update(event:Event):void
+		{
+			if (Locator.home.TweenComplete == true)
+			{			
+				Locator.home.TweenComplete = false;
+				Locator.home.SwitchToScreen();
+				Locator.resetBTNPosition();
+				this.removeEventListener(Event.ENTER_FRAME,update);
+			}
 		}
 		
 		private function Draw():void
