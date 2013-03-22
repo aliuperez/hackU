@@ -62,8 +62,9 @@ package Objects.GUI
 			
 			var myFormat : TextFormat = new TextFormat();
 			
-			myFormat.size = 20;
+			myFormat.size = 50;
 			myFormat.leftMargin = Label.width * .1;
+			myFormat.color = 0xFFFFFF;
 			
 			var text:TextField = new TextField();			
 			Label.graphics.beginFill(0x000000);

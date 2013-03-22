@@ -21,18 +21,10 @@ package Screens
 	{
 	
 		private var homeBTN:HomeBTN;
-		private var refX : int;
-		private var refY : int;
 			
-		//Text Fields
-		/*private var box1 : TextField = new TextField();
-		private var box2 : TextField = new TextField();
-		private var box3 : TextField = new TextField();
-		private var box4 : TextField = new TextField();
-		private var box5 : TextField = new TextField();*/
 		
 		//hardcoded demo information
-		private var eventTitleArray : Array = new Array("1","2","3","4","5");
+		private var eventTitleArray : Array = new Array("I have info","2","3","4","5");
 		private var eventDistanceArray : Array = new Array("1","2","3","4","5");
 		private var eventHostArray : Array = new Array("1","2","3","4","5");
 		private var eventHostWebsiteArray : Array = new Array("1","2","3","4","5");
@@ -51,12 +43,8 @@ package Screens
 			this.removeEventListener(Event.ADDED_TO_STAGE,init);
 			
 			createButtons();
-			
-			//setText();
 			createEvents();
 			positionEventLabels();
-			//placeText();
-
 		}	
 		
 		private function createEvents():void
@@ -93,21 +81,5 @@ package Screens
 			Param = {x:0,y:0,offsetX:homeBTN.width/2,offsetY:homeBTN.height/2};
 			new FluidObject(homeBTN,Param);
 		}
-		
-		/*private function placeText():void
-		{
-
-			var Param:Object;
-			//add kids
-			addChild(box1);
-			addChild(box2);
-			addChild(box3);
-			addChild(box4);
-			addChild(box5);
-			
-			
-			Param = {x:0, y:0, offsetX:homeBTN.width/2 - box1.width /2, offsetY:ScreenHeight/2 - box1.height/2};
-			new FluidObject(box1, Param);
-		}*/
 	}
 }
