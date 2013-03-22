@@ -23,7 +23,7 @@ package Screens
 	{			
 		
 		//hardcoded demo information
-		private var EventTitleArray : Array = new Array("Buy 5 Oil Changes, get 1 FREE!","10% off your next service","Buy $50 of merchandise in the store and get a $10 coupon!","Buy a pair of gloves and get 1 FREE!","Come in every Saturday for FREE soda and hot dogs!");
+		private var EventTitleArray : Array = new Array("   Buy 5 Oil Changes, get 1 FREE!","   10% off your next service","   Buy $50 of merchandise and get a $10 coupon!","   Buy a pair of gloves and get 1 FREE!","   Come in every Saturday for a FREE hot dog!");
 		private var specialDistanceArray : Array = new Array("1","2","3","4","5");
 		private var specialHostArray : Array = new Array("1","2","3","4","5");
 		private var specialHostWebsiteArray : Array = new Array("1","2","3","4","5");

@@ -56,13 +56,13 @@ package Objects
 		{
 			var tab:String = new String();
 
-			for(var i:int=0;i<Locator.DeviceWidth/8;i++)
+			/*for(var i:int=0;i<Locator.DeviceWidth/10;i++)
 			{
 				tab +=" ";
-			}
+			}*/
 
 			
-			var EventTitlesLBL:Label = new Label(_Title+tab+_Distance,1,_LabelWidth,_LabelHeight,0.1,false,0x131DA6,0xFFFFFF);
+			var EventTitlesLBL:Label = new Label(_Title,1,_LabelWidth,_LabelHeight,0.1,false,0x131DA6,0xFFFFFF);
 			this.addChild(EventTitlesLBL);
 		}
 
